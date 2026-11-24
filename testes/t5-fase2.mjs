@@ -110,6 +110,13 @@ let pedPag;
   check('F2-FIN01', 'Recebimento e estorno ficam no registro de auditoria', aud === 'pagamento.receber,pagamento.estornar', aud);
   const antigos = sql("SELECT COUNT(*) FROM pedidos WHERE pagamento_status = 'sem_registro'");
   check('F2-FIN01', 'Pedidos encerrados de antes da atualização ficam "sem registro" (nada inventado)', Number(antigos) >= 0, `${antigos} pedido(s) sem registro`);
+  // pedido cancelado não recebe pagamento (a tela esconde o botão; o servidor também precisa recusar)
+  const pc = await pedir({ itens: [refri] });
+  const nc = pc.json?.pedido?.numero;
+  await post(ger, `/admin/api/pedidos/${nc}/status`, { para: 'confirmado' });
+  await post(ger, `/admin/api/pedidos/${nc}/status`, { para: 'cancelado', motivo: 'Cliente desistiu' });
+  x = await post(coz, `/admin/api/pedidos/${nc}/pagamento`, { situacao: 'recebido', valor: pc.json?.pedido?.total ?? 1, forma: 'pix' });
+  check('F2-FIN01', 'Pedido cancelado não aceita registro de pagamento', x.status === 422 && /cancelado/.test(x.json?.erro || ''), `HTTP ${x.status} · ${x.json?.erro}`);
 }
 
 /* ---------- PED-09: cancelar pedido concluído ---------- */

@@ -465,6 +465,8 @@ export async function registrarPagamento(numero: number, d: Record<string, any>,
     if (sit === 'recebido') {
       if (de === 'recebido') throw new Erro(`O pagamento do pedido #${numero} já está registrado. A tela foi atualizada.`, 409, null, await atual());
       if (r.status === 'recusado') throw new Erro(`O pedido #${numero} foi recusado: não há pagamento para registrar.`, 422);
+      // a tela já esconde o botão; o servidor também recusa (dois aparelhos: um cancela e o outro registra o pagamento)
+      if (r.status === 'cancelado') throw new Erro(`O pedido #${numero} foi cancelado: não há pagamento para registrar.`, 422, null, await atual());
       const total = Number(r.total);
       const valor = V.centavosN(d.valor ?? null, 'o valor recebido', Math.max(10_000_000, total * 10), 'pg-valor');
       if (valor < 1) throw new Erro('Informe o valor recebido.', 422, 'pg-valor');
