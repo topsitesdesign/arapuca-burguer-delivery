@@ -19,6 +19,8 @@ const supabase = (): { url: string; chave: string } | null => {
   const chave = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
   return url && chave ? { url, chave } : null;
 };
+/** Chave nova da Supabase ("sb_secret_…") vai só em apikey; a chave antiga (service_role, um JWT) vai nos dois cabeçalhos. */
+const auth = (chave: string): Record<string, string> => (chave.startsWith('sb_') ? { apikey: chave } : { Authorization: `Bearer ${chave}`, apikey: chave });
 const pastaLocal = (): string => process.env.UPLOADS_DIR || path.resolve('uploads');
 
 export async function gravarArquivo(nome: string, dados: Buffer, tipo: string): Promise<void> {
@@ -26,7 +28,7 @@ export async function gravarArquivo(nome: string, dados: Buffer, tipo: string): 
   if (s) {
     const r = await fetch(`${s.url}/storage/v1/object/${BUCKET}/${nome}`, {
       method: 'POST', body: new Uint8Array(dados),
-      headers: { Authorization: `Bearer ${s.chave}`, apikey: s.chave, 'Content-Type': tipo, 'Cache-Control': '2592000', 'x-upsert': 'true' },
+      headers: { ...auth(s.chave), 'Content-Type': tipo, 'Cache-Control': '2592000', 'x-upsert': 'true' },
     });
     if (!r.ok) throw new Error(`Falha ao gravar a imagem no Supabase Storage (HTTP ${r.status}).`);
     return;
@@ -49,7 +51,7 @@ export async function lerArquivo(nome: string): Promise<Buffer | null> {
 export async function apagarArquivo(nome: string): Promise<void> {
   const s = supabase();
   if (s) {
-    await fetch(`${s.url}/storage/v1/object/${BUCKET}/${nome}`, { method: 'DELETE', headers: { Authorization: `Bearer ${s.chave}`, apikey: s.chave } }).catch(() => undefined);
+    await fetch(`${s.url}/storage/v1/object/${BUCKET}/${nome}`, { method: 'DELETE', headers: auth(s.chave) }).catch(() => undefined);
     return;
   }
   try { fs.unlinkSync(path.join(pastaLocal(), nome)); } catch { /* já não existia */ }
