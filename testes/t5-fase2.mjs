@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { DIR, cred, sql, novoIp, req, sessao, post, get, entrar, entrarComo, pedir, chave, fone, check, R, mediana, png, dataUrl, salvarLista, PORTAS, PHP } from './lib.mjs';
+import { DIR, cred, sql, novoIp, req, sessao, post, get, entrar, entrarComo, pedir, chave, fone, check, R, mediana, png, dataUrl, salvarLista, PORTAS, PHP, ALVO, URL_BANCO } from './lib.mjs';
 
 const SITE = path.join(DIR, 'site');
 const espera = ms => new Promise(r => setTimeout(r, ms));
@@ -14,6 +14,26 @@ const burger = { produtoId: 'brasa-bacon', qtd: 1, escolhas: { 'g-ponto': ['ao-p
 function base32(s) { const A = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'; let bits = ''; for (const c of s.replace(/[^A-Z2-7]/gi, '').toUpperCase()) bits += A.indexOf(c).toString(2).padStart(5, '0'); const out = []; for (let i = 0; i + 8 <= bits.length; i += 8) out.push(parseInt(bits.slice(i, i + 8), 2)); return Buffer.from(out); }
 function totp(seg, passo = Math.floor(Date.now() / 30000)) { const b = Buffer.alloc(8); b.writeUInt32BE(0, 0); b.writeUInt32BE(passo, 4); const h = crypto.createHmac('sha1', base32(seg)).update(b).digest(); const o = h[19] & 15; return String(((h[o] & 127) << 24 | h[o + 1] << 16 | h[o + 2] << 8 | h[o + 3]) % 1e6).padStart(6, '0'); }
 const php = codigo => execFileSync(PHP, ['-d', 'display_errors=1', '-r', `define('BRASA', true); $_SERVER['REQUEST_URI'] = '/'; require 'app/bootstrap.php'; ${codigo}`], { cwd: SITE, encoding: 'utf8' });
+
+/* versão Vercel: a limpeza roda pelo próprio código do servidor; o banco fora do ar é um servidor extra apontando para uma porta sem banco */
+const RAIZ_P = path.resolve(DIR, '..', '..');
+const limpezaVercel = () => execFileSync(process.execPath, ['--import', 'tsx', path.join(RAIZ_P, 'testes', 'porte', 'limpeza.ts')], { cwd: RAIZ_P, encoding: 'utf8', env: { ...process.env, DATABASE_URL: URL_BANCO } }).trim().split('\n').pop();
+async function foraDoArVercel() {
+  const { spawn } = await import('node:child_process');
+  const porta = 8106;
+  // na Vercel, uma instância que acabou de ligar não tem o contato na memória: ele vem das variáveis CONTATO_NOME e CONTATO_WHATSAPP
+  const loja = JSON.parse(sql("SELECT valor FROM configuracoes WHERE chave = 'loja'"));
+  const srv = spawn(process.execPath, ['--import', 'tsx', path.join(RAIZ_P, 'servidor-local.ts')], { cwd: RAIZ_P, stdio: 'ignore', env: { ...process.env, PORTA: String(porta), DATABASE_URL: 'postgres://postgres@127.0.0.1:5499/nenhum', AMBIENTE: 'producao', CONTATO_NOME: loja.nome, CONTATO_WHATSAPP: loja.whatsapp } });
+  try {
+    for (let i = 0; i < 60; i++) { if ((await req({ port: porta, path: '/robots.txt' })).status === 200) break; await espera(250); }
+    const pg = await req({ port: porta, path: '/', headers: { Accept: 'text/html' } });
+    const api = await req({ port: porta, path: '/api/loja' });
+    const dj = await req({ port: porta, path: '/js/data.js' });
+    check('F2-PED06', 'Banco fora do ar: a página mostra o WhatsApp da loja (503)', pg.status === 503 && /wa\.me\//.test(pg.text) && /Pedir pelo WhatsApp/.test(pg.text), `HTTP ${pg.status}`);
+    check('F2-PED06', 'Banco fora do ar: API responde 503 citando o WhatsApp', api.status === 503 && api.json?.foraDoAr === true && /WhatsApp/.test(api.json?.erro), `HTTP ${api.status} · ${api.json?.erro}`);
+    check('F2-PED06', 'Banco fora do ar: o cardápio (data.js) continua válido e avisa', dj.status === 200 && /FORA_DO_AR = true/.test(dj.text), `HTTP ${dj.status}`);
+  } finally { srv.kill(); }
+}
 
 /* ---------- preparação: loja aberta 24 h e sessões ---------- */
 let adm = await entrarComo('aud-admin');
@@ -211,7 +231,7 @@ let pedPag;
   for (const para of ['confirmado', 'preparo', 'entrega', 'concluido']) await post(coz, `/admin/api/pedidos/${n2}/status`, { para });
   sql(`UPDATE pedidos SET criado_em = criado_em - ${30 * 30 * 86_400_000} WHERE numero = ${n2}`);
   sql(`INSERT INTO tentativas (chave, contador, inicio) VALUES ('teste-limpeza-${Date.now()}', 3, ${Math.floor(Date.now() / 1000) - 3 * 86400})`);
-  const res = JSON.parse(php("echo json_encode(Brasa\\Limpeza::rodar());"));
+  const res = JSON.parse(ALVO === 'vercel' ? limpezaVercel() : php("echo json_encode(Brasa\\Limpeza::rodar());"));
   const nome2 = sql(`SELECT cliente_nome FROM pedidos WHERE numero = ${n2}`);
   check('F2-LGPD03', 'Prazo de guarda: a limpeza anonimiza pedido encerrado de 30 meses atrás', nome2 === 'Cliente anonimizado' && res.anonimizados >= 1, `${nome2} · ${JSON.stringify(res)}`);
   check('F2-BD06', 'Limpeza tira tentativas vencidas', res.tentativas >= 1 && sql("SELECT COUNT(*) FROM tentativas WHERE chave LIKE 'teste-limpeza-%'") === '0', JSON.stringify(res));
@@ -366,7 +386,8 @@ let pedPag;
 }
 
 /* ---------- PED-06: banco fora do ar ---------- */
-{
+if (ALVO === 'vercel') await foraDoArVercel();
+else {
   const arqCfg = path.join(SITE, 'app', 'config.php');
   const original = fs.readFileSync(arqCfg, 'utf8');
   try {

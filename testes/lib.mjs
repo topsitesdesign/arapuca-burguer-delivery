@@ -11,16 +11,85 @@ import { fileURLToPath } from 'node:url';
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 export const DIR = path.join(AQUI, 'tmp');
 const RAIZ = path.resolve(AQUI, '..');
-export const BANCO = 'testes_brasa_tmp';
+export const ALVO = process.env.TESTE_ALVO === 'vercel' ? 'vercel' : 'php';
+export const BANCO = ALVO === 'vercel' ? 'testes_vercel_tmp' : 'testes_brasa_tmp';
+export const URL_BANCO = `postgres://postgres@127.0.0.1:5433/${BANCO}`;
 export const PHP = path.join(RAIZ, '.ferramentas', 'php', 'php.exe');
 export const cred = JSON.parse(fs.readFileSync(path.join(DIR, 'cred.json'), 'utf8'));
 const MYSQL = path.join(RAIZ, '.ferramentas', 'mysql', 'bin', 'mysql.exe');
 const MYCNF = path.join(RAIZ, '.ferramentas', 'mysql-root.cnf');
 export const PORTAS = [8101, 8102, 8103, 8104];
 
-/** SQL só no banco de testes. */
+/** SQL só no banco de testes (MySQL na versão PHP; Postgres na versão Vercel, com a consulta traduzida). */
 export function sql(q) {
+  if (ALVO === 'vercel') return sqlPg(q);
   return execFileSync(MYSQL, [`--defaults-extra-file=${MYCNF}`, '-h', '127.0.0.1', '-P', '3307', '-N', '-B', BANCO, '-e', q], { encoding: 'utf8' }).trim();
+}
+
+/* ---------- Postgres (versão Vercel) ---------- */
+const PSQL = path.join(RAIZ, '.ferramentas', 'postgres', 'bin', 'psql.exe');
+
+/** Acha o parêntese que fecha o que abre em s[i] (respeita aspas). */
+function fecha(s, i) {
+  let n = 0, aspas = false;
+  for (let j = i; j < s.length; j++) {
+    const c = s[j];
+    if (c === "'") aspas = !aspas;
+    else if (!aspas && c === '(') n++;
+    else if (!aspas && c === ')' && --n === 0) return j;
+  }
+  return -1;
+}
+/** Divide os argumentos de nível de cima (vírgulas fora de parênteses e aspas). */
+function argumentos(s) {
+  const out = []; let n = 0, aspas = false, ini = 0;
+  for (let j = 0; j < s.length; j++) {
+    const c = s[j];
+    if (c === "'") aspas = !aspas;
+    else if (!aspas && c === '(') n++;
+    else if (!aspas && c === ')') n--;
+    else if (!aspas && c === ',' && n === 0) { out.push(s.slice(ini, j).trim()); ini = j + 1; }
+  }
+  out.push(s.slice(ini).trim());
+  return out;
+}
+/** Troca cada FUNCAO(...) pelo que f devolver (de dentro para fora). */
+function trocarFuncao(q, nome, f) {
+  const re = new RegExp(`\\b${nome}\\s*\\(`, 'i');
+  let m;
+  while ((m = re.exec(q))) {
+    const abre = m.index + m[0].length - 1, fim = fecha(q, abre);
+    q = q.slice(0, m.index) + f(q.slice(abre + 1, fim)) + q.slice(fim + 1);
+  }
+  return q;
+}
+/** Tradução das consultas dos testes (escritas para o MySQL) para o Postgres. */
+export function traduzir(q) {
+  q = q.replace(/\bDATABASE\(\)/gi, 'current_schema()');
+  // IFNULL(numero, 'texto'): no Postgres os dois lados precisam ser do mesmo tipo
+  q = trocarFuncao(q, 'IFNULL', a => { const [x, y] = argumentos(a); return `COALESCE§((${x})::text, ${y})`; });
+  q = trocarFuncao(q, 'JSON_LENGTH', a => `json_array_length((${a})::json)`);
+  q = trocarFuncao(q, 'JSON_EXTRACT', a => { const [x, c] = argumentos(a); return `((${x})::json->'${c.replace(/^'\$\.|'$/g, '')}')::text`; });
+  // no MySQL, comparação dentro do CONCAT vira 1/0
+  q = trocarFuncao(q, 'CONCAT', a => 'concat§(' + argumentos(a).map(x => /<>|[^<>!]=|\bIS\b/i.test(x) ? `(CASE WHEN ${x} THEN 1 ELSE 0 END)` : x).join(', ') + ')');
+  q = trocarFuncao(q, 'GROUP_CONCAT', a => {
+    const m = /^(DISTINCT\s+)?([\s\S]*?)(\s+ORDER\s+BY\s+[\s\S]*)?$/i.exec(a.trim());
+    const ordem = m[3] ? m[3].trim().replace(/^ORDER\s+BY\s+/i, '') : '';
+    // com DISTINCT, o Postgres exige que a ordem seja a mesma expressão agregada
+    const por = !ordem ? '' : m[1] ? ` ORDER BY (${ordem})::text` : ` ORDER BY ${ordem}`;
+    return `string_agg(${m[1] || ''}(${m[2]})::text, ','${por})`;
+  });
+  return q.replace(/concat§\(/g, 'CONCAT(').replace(/COALESCE§\(/g, 'COALESCE(');
+}
+function sqlPg(q) {
+  const explain = /^\s*EXPLAIN\s/i.test(q);
+  // tabela de teste é pequena: sem isso o Postgres prefere ler tudo e nunca mostra se o índice serve à consulta
+  const cmd = explain ? `SET enable_seqscan = off; ${q}` : traduzir(q);
+  const saida = execFileSync(PSQL, ['-h', '127.0.0.1', '-p', '5433', '-U', 'postgres', '-d', BANCO, '-X', '-q', '-t', '-A', '-F', '\t', '-v', 'ON_ERROR_STOP=1', '-c', cmd], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+  // os índices usados aparecem como "Index Scan using ix_..." ou "Bitmap Index Scan on ix_..."
+  if (explain) return [...saida.matchAll(/(?:Index Scan using|Index Only Scan using|Bitmap Index Scan on) (\w+)/gi)].map(m => m[1]).join('\t') + '\t' + saida.replace(/\s+/g, ' ');
+  // booleanos do Postgres (t/f) saem como no MySQL (1/0)
+  return saida.split('\n').map(l => l.split('\t').map(c => (c === 't' ? '1' : c === 'f' ? '0' : c)).join('\t')).join('\n');
 }
 
 let ipSeq = 0;

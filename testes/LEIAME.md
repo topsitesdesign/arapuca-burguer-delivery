@@ -23,6 +23,14 @@ Os resultados ficam em `testes/tmp/resultados-*.json`. A pasta `testes/tmp` não
 
 Os pedidos de teste passam pela proteção contra robôs como o navegador: `post()` em `lib.mjs` pede o desafio e resolve a prova sozinho (com `semProva: true`, envia sem).
 
+## Versão Vercel + Supabase (Node + Postgres)
+
+```bash
+bash testes/rodar-vercel.sh
+```
+
+As mesmas baterias, contra 4 servidores locais da versão Node (`servidor-local.ts`) e um banco `testes_vercel_tmp` no Postgres local (porta 5433). `porte/preparar-banco.mjs` cria as tabelas, carrega a mesma `fixture-demo.sql` (convertida do formato do MySQL) e os usuários de teste. As consultas dos testes, escritas para o MySQL, são traduzidas em `lib.mjs` (`TESTE_ALVO=vercel`). Diferenças: a instalação nova é `t7-instalacao-vercel.mjs` (código na variável `CODIGO_INSTALACAO`), o "banco fora do ar" é um servidor extra (porta 8106) apontando para uma porta sem banco, e o `sessao-limpeza.php` não se aplica (as sessões ficam no banco).
+
 Regra: a bateria só está aprovada com **zero falhas**. Linhas "INFO" são informativas e não contam como falha.
 
 O banco de testes vem de `testes/fixture-demo.sql` (cardápio da loja-modelo, sem pedidos e sem usuários reais). Para testar com uma cópia do banco local: `ORIGEM=brasa_dev bash testes/rodar.sh`. Num projeto novo, sem `app/config.php`, o `config-teste.php` monta a configuração da cópia com o usuário do banco do `.env`.

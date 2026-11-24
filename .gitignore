@@ -8,6 +8,7 @@
 site/app/config.php
 site/app/instalacao.php
 COMO-PUBLICAR.txt
+COMO-PUBLICAR-VERCEL.txt
 
 # Gerados durante o uso
 site/storage/logs/*
@@ -34,3 +35,9 @@ desktop.ini
 
 # Testes automáticos: cópia do site, senhas de teste e resultados
 testes/tmp/
+
+# Versão Vercel + Supabase: pacotes, saída do build e ligação local com a Vercel
+node_modules/
+public/
+servidor/gerado/
+.vercel/
