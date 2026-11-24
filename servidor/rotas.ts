@@ -58,7 +58,7 @@ async function login(erro: string | null = null, email = '', codigo = false): Pr
   const csrf = await S.tokenCsrf();
   const topo = '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'
     + '<title>Entrar · Painel ' + e(nome) + '</title><meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#0d0b0a">'
-    + '<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/admin/admin.css"></head><body>'
+    + '<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/admin/admin.css"></head><body>'
     + '<div class="login-screen">';
   const logo = await Cardapio.logo();
   const marca = '<div class="login-card__brand">' + (logo !== '' ? '<img src="' + e(logo) + '" alt="' + e(nome) + '" style="height:84px;width:auto;max-width:100%;margin:0 auto 4px;object-fit:contain">' : '<span class="side__name">' + e(nome) + '</span>') + '<span class="side__tag">PAINEL DE GESTÃO</span></div>';

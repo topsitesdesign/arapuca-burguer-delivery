@@ -6,6 +6,9 @@ const ehNumero = (v: unknown): v is number => typeof v === 'number' && Number.is
 export const numerico = (v: unknown): boolean =>
   (typeof v === 'number' && Number.isFinite(v)) || (typeof v === 'string' && /^\s*[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?\s*$/.test(v));
 
+/** "em" + rótulo com artigo: o→no, a→na, os→nos, as→nas ("em a quantidade" vira "na quantidade"). */
+const em = (r: string): string => r.replace(/^(o|a|os|as) /, (_m, a) => 'n' + a + ' ').replace(/^(?!n(o|a|os|as) )/, 'em ');
+
 export function texto(v: unknown, rotulo: string, min = 0, max = 200, campo: string | null = null): string {
   let s = typeof v === 'string' || ehNumero(v) ? trim(String(v)) : '';
   s = s.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/gu, '');
@@ -18,7 +21,7 @@ export function texto(v: unknown, rotulo: string, min = 0, max = 200, campo: str
 
 export function inteiro(v: unknown, rotulo: string, min: number, max: number, campo: string | null = null): number {
   if (typeof v === 'string' && /^-?\d+$/.test(trim(v))) v = parseInt(trim(v), 10);
-  if (!ehNumero(v) || !Number.isInteger(v) || v < min || v > max) throw new Erro(`Use um número de ${min} a ${max} em ${rotulo}.`, 422, campo);
+  if (!ehNumero(v) || !Number.isInteger(v) || v < min || v > max) throw new Erro(`Use um número de ${min} a ${max} ${em(rotulo)}.`, 422, campo);
   return v;
 }
 
@@ -30,10 +33,10 @@ export function centavos(v: unknown, rotulo: string, max = 100_000_000, nulo = f
     if (t.includes(',')) t = t.replace(/\./g, '').replace(/,/g, '.');
     v = numerico(t) ? parseFloat(t) : null;
   }
-  if (!ehNumero(v)) throw new Erro(`Informe um valor em reais em ${rotulo}.`, 422, campo);
+  if (!ehNumero(v)) throw new Erro(`Informe um valor em reais ${em(rotulo)}.`, 422, campo);
   const x = v * 100;
   const c = x < 0 ? -Math.round(-x) : Math.round(x);
-  if (c < 0 || c > max) throw new Erro(`Valor fora do permitido em ${rotulo}.`, 422, campo);
+  if (c < 0 || c > max) throw new Erro(`Valor fora do permitido ${em(rotulo)}.`, 422, campo);
   return c;
 }
 /** centavos() sem nulo: sempre um número. */
@@ -42,7 +45,7 @@ export const centavosN = (v: unknown, rotulo: string, max = 100_000_000, campo: 
 export const bool = (v: unknown): boolean => v === true || v === 1 || v === '1' || v === 'true';
 
 export function id(v: unknown, rotulo = 'um item'): string {
-  if (typeof v !== 'string' || !/^[a-z0-9][a-z0-9_-]{0,59}$/.test(v)) throw new Erro(`Identificador inválido em ${rotulo}.`, 422);
+  if (typeof v !== 'string' || !/^[a-z0-9][a-z0-9_-]{0,59}$/.test(v)) throw new Erro(`Identificador inválido ${em(rotulo)}.`, 422);
   return v;
 }
 
@@ -52,17 +55,17 @@ function dataOk(a: number, m: number, d: number): boolean {
 }
 export function data(v: unknown, rotulo: string, campo: string | null = null): string {
   const m = typeof v === 'string' ? /^(\d{4})-(\d{2})-(\d{2})$/.exec(v) : null;
-  if (!m || !dataOk(+m[1], +m[2], +m[3])) throw new Erro(`Escolha uma data válida em ${rotulo}.`, 422, campo);
+  if (!m || !dataOk(+m[1], +m[2], +m[3])) throw new Erro(`Escolha uma data válida ${em(rotulo)}.`, 422, campo);
   return v as string;
 }
 
 export function hora(v: unknown, rotulo: string): string {
-  if (typeof v !== 'string' || !/^([01]\d|2[0-3]):[0-5]\d$/.test(v)) throw new Erro(`Use o formato 18:00 em ${rotulo}.`, 422);
+  if (typeof v !== 'string' || !/^([01]\d|2[0-3]):[0-5]\d$/.test(v)) throw new Erro(`Use o formato 18:00 ${em(rotulo)}.`, 422);
   return v;
 }
 
 export function opcao<T extends string>(v: unknown, permitidos: readonly T[], rotulo: string, campo: string | null = null): T {
-  if (typeof v !== 'string' || !(permitidos as readonly string[]).includes(v)) throw new Erro(`Escolha uma opção válida em ${rotulo}.`, 422, campo);
+  if (typeof v !== 'string' || !(permitidos as readonly string[]).includes(v)) throw new Erro(`Escolha uma opção válida ${em(rotulo)}.`, 422, campo);
   return v as T;
 }
 
@@ -83,13 +86,13 @@ export function email(v: unknown, rotulo = 'o e-mail'): string {
 }
 
 export function lista(v: unknown, rotulo: string, maximo = 500): any[] {
-  if (!Array.isArray(v)) throw new Erro(`Formato inválido em ${rotulo}.`, 400);
-  if (v.length > maximo) throw new Erro(`Itens demais em ${rotulo} (máximo de ${maximo}).`, 422);
+  if (!Array.isArray(v)) throw new Erro(`Formato inválido ${em(rotulo)}.`, 400);
+  if (v.length > maximo) throw new Erro(`Itens demais ${em(rotulo)} (máximo de ${maximo}).`, 422);
   return v;
 }
 
 export function objeto(v: unknown, rotulo: string): Record<string, any> {
-  if (Array.isArray(v)) { if (v.length === 0) return {}; throw new Erro(`Formato inválido em ${rotulo}.`, 400); }
-  if (!ehArray(v)) throw new Erro(`Formato inválido em ${rotulo}.`, 400);
+  if (Array.isArray(v)) { if (v.length === 0) return {}; throw new Erro(`Formato inválido ${em(rotulo)}.`, 400); }
+  if (!ehArray(v)) throw new Erro(`Formato inválido ${em(rotulo)}.`, 400);
   return v as Record<string, any>;
 }
