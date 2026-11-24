@@ -1,0 +1,8 @@
+# Imagens enviadas pelo painel: só imagens, nada que execute.
+# (Sem a linha "Options": no InfinityFree ela derrubava a pasta inteira com erro 500.
+#  A listagem de pastas já está desligada pelo .htaccess principal.)
+<FilesMatch "\.(?i:php\d?|phtml|phar|pht|shtml|cgi|pl|py|sh|htaccess)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>

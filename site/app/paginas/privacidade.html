@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacidade · {{LOJA_NOME}}</title>
+<meta name="description" content="Como a {{LOJA_NOME}} usa e protege os dados dos clientes: o que coleta, por quê, por quanto tempo e como pedir uma cópia ou a exclusão.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0d0a08">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="topbar on-dark">
+  <div class="wrap-wide topbar__in">
+    <a class="brand" href="index.html"><span class="brand__name">{{LOJA_NOME}}</span></a>
+    <div class="topbar__actions"><a class="btn btn--primary" href="index.html#cardapio">Ver cardápio</a></div>
+  </div>
+</header>
+<main class="page" id="conteudo">
+  <div class="wrap">
+    <div class="page__head">
+      <a class="back" href="index.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7M19 12H5"/></svg>Voltar ao início</a>
+      <h1 class="title page__title">Privacidade</h1>
+      <p class="muted" style="max-width: 62ch; margin-top: 14px">Como a {{LOJA_NOME}} usa os dados de quem pede pelo site. Atualizada em {{PRIVACIDADE_VERSAO}}.</p>
+    </div>
+
+    <div class="legal">
+      <h2>Quem cuida dos seus dados</h2>
+      <p>{{LOJA_RAZAO}}<!--se:cnpj-->, CNPJ {{LOJA_CNPJ}}<!--/se:cnpj-->, com endereço em {{ENDERECO_COMPLETO}}, {{LOJA_CIDADE}}. É a loja que decide como os dados são usados: na Lei Geral de Proteção de Dados (LGPD), ela é a controladora. O site e o painel funcionam num sistema contratado pela loja; quem fornece esse sistema trata os dados só para ele funcionar, seguindo as instruções da loja.</p>
+
+      <h2>O que pedimos e para quê</h2>
+      <ul>
+        <li><strong>Nome e WhatsApp:</strong> para identificar o pedido e falar com você sobre ele (confirmação, atraso, entrega).</li>
+        <li><strong>Endereço, complemento e ponto de referência</strong> (só quando é entrega): para levar o pedido até você.</li>
+        <li><strong>Itens, observações, forma de pagamento e troco:</strong> para preparar o pedido e receber na entrega ou no balcão.</li>
+        <li><strong>Cupom:</strong> para aplicar o desconto e conferir o limite de uso por WhatsApp.</li>
+        <li><strong>Dados técnicos:</strong> o endereço de internet (IP) do aparelho fica guardado só como um código embaralhado, para limitar tentativas repetidas e proteger o site contra abuso.</li>
+      </ul>
+      <p>Não pedimos CPF, e-mail, data de nascimento nem dados de cartão. O pagamento é feito na entrega ou no balcão: o site não cobra nada.</p>
+
+      <h2>Por que podemos usar esses dados</h2>
+      <p>Para preparar e entregar o pedido que você fez (LGPD, art. 7º, V). Para a segurança do site e a prevenção de pedidos falsos, por interesse legítimo da loja (art. 7º, IX). E para cumprir obrigações legais, como registros fiscais e contábeis, quando houver (art. 7º, II).</p>
+
+      <h2>Com quem compartilhamos</h2>
+      <p>Não vendemos nem alugamos seus dados. Eles ficam guardados no servidor que hospeda o site. O WhatsApp só entra quando você ou a loja abre uma conversa. A loja só entrega dados a autoridades quando a lei obriga.</p>
+
+      <h2>Por quanto tempo guardamos</h2>
+      <p>Nome, WhatsApp, endereço e observações dos pedidos ficam guardados por {{PRAZO_GUARDA}}. Depois disso, são apagados sozinhos e o pedido fica só com os valores, para a contabilidade da loja. O link de acompanhamento deixa de mostrar o pedido 7 dias depois que ele termina, e mostra só o primeiro nome, o WhatsApp com o meio escondido e o bairro. O endereço inteiro só aparece para quem confirma o WhatsApp do pedido.</p>
+
+      <h2>No seu aparelho</h2>
+      <p>O site guarda no seu navegador a sacola e o número dos últimos pedidos, para você acompanhar. Se você marcar "Lembrar meus dados neste aparelho" ao pedir, também guarda nome, WhatsApp e endereço para o próximo pedido. Nada disso vai para outras empresas. O site não usa cookies de propaganda nem ferramentas de rastreamento, e as fontes e imagens vêm do próprio site.</p>
+      <p><button class="btn btn--ghost" type="button" data-apagar-dados>Apagar meus dados deste aparelho</button></p>
+      <p class="muted" data-apagar-msg role="status" hidden></p>
+
+      <h2>Seus direitos</h2>
+      <p>Você pode pedir, a qualquer momento (LGPD, art. 18): a confirmação de que tratamos seus dados; uma cópia deles; a correção de dados errados; a anonimização ou a exclusão do que não for mais necessário; e a informação de com quem foram compartilhados. A loja responde em até 15 dias.</p>
+
+      <h2>Como pedir</h2>
+      <!--se:encarregado--><p>Encarregado de dados da loja: {{ENCARREGADO_NOME}}, que atende {{ENCARREGADO_CONTATO}}.</p><!--/se:encarregado-->
+      <!--se:semencarregado--><p>Fale com a loja {{ENCARREGADO_CONTATO}}.</p><!--/se:semencarregado-->
+      <p>Informe o WhatsApp usado nos pedidos: é por ele que a loja encontra os seus dados. Se não ficar satisfeito com a resposta, você também pode procurar a Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+      <h2>Segurança</h2>
+      <p>O site usa conexão protegida (HTTPS). O painel da loja exige senha forte, pode exigir verificação em duas etapas, dá a cada funcionário só o acesso de que ele precisa e registra quem consultou ou exportou dados de clientes.</p>
+
+      <h2>Mudanças nesta página</h2>
+      <p>Quando esta política mudar, a data no topo muda junto.</p>
+    </div>
+  </div>
+</main>
+<footer class="footer on-dark">
+  <div class="wrap">
+    <div class="footer__bottom" style="margin-top:0; border-top:0; padding-top:0">
+      <p>© {{ANO}} {{LOJA_NOME}}</p>
+      <p><a href="creditos.html">Créditos das fotos</a></p>
+    </div>
+  </div>
+</footer>
+<script type="module" src="js/apagar-dados.js"></script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+{
+ "note": "Créditos das fotografias desta pasta (provisórias, do Unsplash e do Pexels). A página creditos.html mostra a mesma lista.",
+ "photos": [
+  {
+   "file": "photo-topo.webp",
+   "files": [
+    "photo-topo-960.webp",
+    "photo-topo-1280.webp",
+    "photo-topo.webp"
+   ],
+   "id": "S6bhxzVitB4",
+   "alt": "Hambúrguer com bacon e queijo derretido no pão brioche, sobre fundo escuro",
+   "by": "Tá Focando",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/S6bhxzVitB4",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000001.webp",
+   "files": [
+    "photo-f900000000001-500.webp",
+    "photo-f900000000001-960.webp",
+    "photo-f900000000001.webp"
+   ],
+   "id": "j-MPEwH9LM4",
+   "alt": "Hambúrguer com cheddar e cebola caramelizada, sobre fundo escuro",
+   "by": "amirali mirhashemian",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/j-MPEwH9LM4",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000002.webp",
+   "files": [
+    "photo-f900000000002-500.webp",
+    "photo-f900000000002-960.webp",
+    "photo-f900000000002.webp"
+   ],
+   "id": "knraRhF5aKA",
+   "alt": "Hambúrguer com queijo e cebola num prato escuro",
+   "by": "Arvid Skywalker",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/knraRhF5aKA",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000003.webp",
+   "files": [
+    "photo-f900000000003-500.webp",
+    "photo-f900000000003-960.webp",
+    "photo-f900000000003.webp"
+   ],
+   "id": "9Bqiusimq6M",
+   "alt": "Hambúrguer com bacon e cheddar derretido",
+   "by": "amirali mirhashemian",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/9Bqiusimq6M",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000004.webp",
+   "files": [
+    "photo-f900000000004-500.webp",
+    "photo-f900000000004-960.webp",
+    "photo-f900000000004.webp"
+   ],
+   "id": "1kA3lACHeqk",
+   "alt": "Hambúrguer com bacon e queijo ao lado de batatas fritas numa tábua",
+   "by": "Jonathan Borba",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/1kA3lACHeqk",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000005.webp",
+   "files": [
+    "photo-f900000000005-500.webp",
+    "photo-f900000000005-960.webp",
+    "photo-f900000000005.webp"
+   ],
+   "id": "yVFr_D_PxkQ",
+   "alt": "Hambúrguer com bacon e queijo, sobre fundo escuro",
+   "by": "Carlos Davila Cepeda",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/yVFr_D_PxkQ",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000006.webp",
+   "files": [
+    "photo-f900000000006-500.webp",
+    "photo-f900000000006-960.webp",
+    "photo-f900000000006.webp"
+   ],
+   "id": "xrdbUgwGWfo",
+   "alt": "Hambúrguer alto com bacon e queijo num prato azul",
+   "by": "Fidel Fernando",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/xrdbUgwGWfo",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000007.webp",
+   "files": [
+    "photo-f900000000007-500.webp",
+    "photo-f900000000007-960.webp",
+    "photo-f900000000007.webp"
+   ],
+   "id": "KTId3EPY6aE",
+   "alt": "Sanduíche de baguete com carne, queijo derretido e folhas",
+   "by": "chez gilbert saigon",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/KTId3EPY6aE",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000008.webp",
+   "files": [
+    "photo-f900000000008-500.webp",
+    "photo-f900000000008-960.webp",
+    "photo-f900000000008.webp"
+   ],
+   "id": "ChXHveqrb28",
+   "alt": "Porção de batata frita numa cestinha de metal",
+   "by": "Mitchell Luo",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/ChXHveqrb28",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000009.webp",
+   "files": [
+    "photo-f900000000009-500.webp",
+    "photo-f900000000009-960.webp",
+    "photo-f900000000009.webp"
+   ],
+   "id": "qgZRZI-pKgM",
+   "alt": "Cesta de batatas fritas com molho",
+   "by": "Logan Weaver",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/qgZRZI-pKgM",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000010.webp",
+   "files": [
+    "photo-f900000000010-500.webp",
+    "photo-f900000000010-960.webp",
+    "photo-f900000000010.webp"
+   ],
+   "id": "I-cgCz5DUi4",
+   "alt": "Batata frita coberta com cheddar, bacon e cebolinha",
+   "by": "Jonathan Borba",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/I-cgCz5DUi4",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000011.webp",
+   "files": [
+    "photo-f900000000011-500.webp",
+    "photo-f900000000011-960.webp",
+    "photo-f900000000011.webp"
+   ],
+   "id": "xy7BK6oDD2s",
+   "alt": "Batata frita coberta com queijo cremoso e carne desfiada",
+   "by": "Christopher Stites",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/xy7BK6oDD2s",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000012.webp",
+   "files": [
+    "photo-f900000000012-500.webp",
+    "photo-f900000000012-960.webp",
+    "photo-f900000000012.webp"
+   ],
+   "id": "36048828",
+   "alt": "Caldinho de feijão numa panelinha",
+   "by": "thiago japyassu",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/36048828/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000013.webp",
+   "files": [
+    "photo-f900000000013-500.webp",
+    "photo-f900000000013-960.webp",
+    "photo-f900000000013.webp"
+   ],
+   "id": "37183920",
+   "alt": "Caldinhos servidos em canecas, com limão",
+   "by": "Caio Niceas",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/37183920/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000014.webp",
+   "files": [
+    "photo-f900000000014-500.webp",
+    "photo-f900000000014-960.webp",
+    "photo-f900000000014.webp"
+   ],
+   "id": "24246337",
+   "alt": "Caldo de frutos do mar com camarão e pimentão",
+   "by": "one click",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/24246337/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000015.webp",
+   "files": [
+    "photo-f900000000015-500.webp",
+    "photo-f900000000015-960.webp",
+    "photo-f900000000015.webp"
+   ],
+   "id": "GydZBn-7LMM",
+   "alt": "Salsichões na grelha",
+   "by": "Jonathan Taylor",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/GydZBn-7LMM",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000016.webp",
+   "files": [
+    "photo-f900000000016-500.webp",
+    "photo-f900000000016-960.webp",
+    "photo-f900000000016.webp"
+   ],
+   "id": "7159284",
+   "alt": "Pão de alho gratinado sobre pedra escura",
+   "by": "Ahmed Bhutta",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/7159284/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000017.webp",
+   "files": [
+    "photo-f900000000017-500.webp",
+    "photo-f900000000017-960.webp",
+    "photo-f900000000017.webp"
+   ],
+   "id": "8751408",
+   "alt": "Fatias de queijo grelhado com marcas da grelha",
+   "by": "Anastasia Belousova",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/8751408/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000018.webp",
+   "files": [
+    "photo-f900000000018-500.webp",
+    "photo-f900000000018-960.webp",
+    "photo-f900000000018.webp"
+   ],
+   "id": "36912022",
+   "alt": "Espetinhos de carne com farofa e vinagrete",
+   "by": "Debora Silveira",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/36912022/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000019.webp",
+   "files": [
+    "photo-f900000000019-500.webp",
+    "photo-f900000000019-960.webp",
+    "photo-f900000000019.webp"
+   ],
+   "id": "31587881",
+   "alt": "Espetinho de frango na brasa",
+   "by": "Furkan Alakoç",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/31587881/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000020.webp",
+   "files": [
+    "photo-f900000000020-500.webp",
+    "photo-f900000000020-960.webp",
+    "photo-f900000000020.webp"
+   ],
+   "id": "40646207",
+   "alt": "Espetinho de frango enrolado no bacon",
+   "by": "Leo Luz Fotografia",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/40646207/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000021.webp",
+   "files": [
+    "photo-f900000000021-500.webp",
+    "photo-f900000000021-960.webp",
+    "photo-f900000000021.webp"
+   ],
+   "id": "7FYZhKm9ej8",
+   "alt": "Espetinhos de frango assando sobre as brasas",
+   "by": "Martin Baron",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/7FYZhKm9ej8",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000022.webp",
+   "files": [
+    "photo-f900000000022-500.webp",
+    "photo-f900000000022-960.webp",
+    "photo-f900000000022.webp"
+   ],
+   "id": "37035283",
+   "alt": "Espetinhos assando na brasa com fumaça",
+   "by": "arwin waworuntu",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/37035283/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000023.webp",
+   "files": [
+    "photo-f900000000023-500.webp",
+    "photo-f900000000023-960.webp",
+    "photo-f900000000023.webp"
+   ],
+   "id": "28902903",
+   "alt": "Espetinhos de carne e bacon",
+   "by": "pedro furtado",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/28902903/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000024.webp",
+   "files": [
+    "photo-f900000000024-500.webp",
+    "photo-f900000000024-960.webp",
+    "photo-f900000000024.webp"
+   ],
+   "id": "38602965",
+   "alt": "Espetinhos de carne e queijo na churrasqueira",
+   "by": "Nothing Ahead",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/38602965/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000025.webp",
+   "files": [
+    "photo-f900000000025-500.webp",
+    "photo-f900000000025-960.webp",
+    "photo-f900000000025.webp"
+   ],
+   "id": "QtLYiB6P-KM",
+   "alt": "Costelinha suína com barbecue na grelha",
+   "by": "Brian Wegman",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/QtLYiB6P-KM",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000026.webp",
+   "files": [
+    "photo-f900000000026-500.webp",
+    "photo-f900000000026-960.webp",
+    "photo-f900000000026.webp"
+   ],
+   "id": "32383601",
+   "alt": "Carne assando no espeto",
+   "by": "Wolf Art",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/32383601/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000027.webp",
+   "files": [
+    "photo-f900000000027-500.webp",
+    "photo-f900000000027-960.webp",
+    "photo-f900000000027.webp"
+   ],
+   "id": "40646204",
+   "alt": "Picanha no espeto",
+   "by": "Leo Luz Fotografia",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/40646204/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000028.webp",
+   "files": [
+    "photo-f900000000028-500.webp",
+    "photo-f900000000028-960.webp",
+    "photo-f900000000028.webp"
+   ],
+   "id": "WHtVB-RiW2I",
+   "alt": "Três espetinhos de carne com batata frita e tomate",
+   "by": "Markus Winkler",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/WHtVB-RiW2I",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000029.webp",
+   "files": [
+    "photo-f900000000029-500.webp",
+    "photo-f900000000029-960.webp",
+    "photo-f900000000029.webp"
+   ],
+   "id": "N-MqWXXZvNY",
+   "alt": "Garrafa de água mineral",
+   "by": "Steve A Johnson",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/N-MqWXXZvNY",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000030.webp",
+   "files": [
+    "photo-f900000000030-500.webp",
+    "photo-f900000000030-960.webp",
+    "photo-f900000000030.webp"
+   ],
+   "id": "TWIRIAizZFU",
+   "alt": "Água com gás caindo num copo",
+   "by": "KOBU Agency",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/TWIRIAizZFU",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000031.webp",
+   "files": [
+    "photo-f900000000031-500.webp",
+    "photo-f900000000031-960.webp",
+    "photo-f900000000031.webp"
+   ],
+   "id": "h7a8RsZFzgc",
+   "alt": "Copo de refrigerante com gelo",
+   "by": "David Foodphototasty",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/h7a8RsZFzgc",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000032.webp",
+   "files": [
+    "photo-f900000000032-500.webp",
+    "photo-f900000000032-960.webp",
+    "photo-f900000000032.webp"
+   ],
+   "id": "32183186",
+   "alt": "Lata de Guaraná Antarctica",
+   "by": "Anna Holodna",
+   "licence": "Licença Pexels",
+   "licenceUrl": "https://www.pexels.com/pt-br/licenca/",
+   "page": "https://www.pexels.com/photo/32183186/",
+   "source": "Pexels"
+  },
+  {
+   "file": "photo-f900000000033.webp",
+   "files": [
+    "photo-f900000000033-500.webp",
+    "photo-f900000000033-960.webp",
+    "photo-f900000000033.webp"
+   ],
+   "id": "uCtJy7YavP8",
+   "alt": "Refrigerante com gelo",
+   "by": "Faris Mohammed",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/uCtJy7YavP8",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000034.webp",
+   "files": [
+    "photo-f900000000034-500.webp",
+    "photo-f900000000034-960.webp",
+    "photo-f900000000034.webp"
+   ],
+   "id": "cNQ_srUuvHk",
+   "alt": "Lata de Coca-Cola gelada",
+   "by": "Jeanson Wong",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/cNQ_srUuvHk",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000035.webp",
+   "files": [
+    "photo-f900000000035-500.webp",
+    "photo-f900000000035-960.webp",
+    "photo-f900000000035.webp"
+   ],
+   "id": "cJeGGOI8eE0",
+   "alt": "Lata de Coca-Cola Zero gelada",
+   "by": "Mikael Stenberg",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/cJeGGOI8eE0",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000036.webp",
+   "files": [
+    "photo-f900000000036-500.webp",
+    "photo-f900000000036-960.webp",
+    "photo-f900000000036.webp"
+   ],
+   "id": "Ey9zoiEGQHw",
+   "alt": "Garrafa de Schweppes com limões",
+   "by": "shche_ team",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/Ey9zoiEGQHw",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000037.webp",
+   "files": [
+    "photo-f900000000037-500.webp",
+    "photo-f900000000037-960.webp",
+    "photo-f900000000037.webp"
+   ],
+   "id": "lzn9KXKMClU",
+   "alt": "Limões e bolhas sobre fundo escuro",
+   "by": "engin akyurt",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/lzn9KXKMClU",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000038.webp",
+   "files": [
+    "photo-f900000000038-500.webp",
+    "photo-f900000000038-960.webp",
+    "photo-f900000000038.webp"
+   ],
+   "id": "mZT5bMpmDGQ",
+   "alt": "Copo de bebida gaseificada com limão",
+   "by": "montatip lilitsanong",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/mZT5bMpmDGQ",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000039.webp",
+   "files": [
+    "photo-f900000000039-500.webp",
+    "photo-f900000000039-960.webp",
+    "photo-f900000000039.webp"
+   ],
+   "id": "Ba6JoOFpF2U",
+   "alt": "Garrafa long neck de Heineken",
+   "by": "Andri Klopfenstein",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/Ba6JoOFpF2U",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000040.webp",
+   "files": [
+    "photo-f900000000040-500.webp",
+    "photo-f900000000040-960.webp",
+    "photo-f900000000040.webp"
+   ],
+   "id": "kkrXVKK-jhg",
+   "alt": "Copo de suco com rodela de laranja",
+   "by": "ABHISHEK HAJARE",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/kkrXVKK-jhg",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000041.webp",
+   "files": [
+    "photo-f900000000041-500.webp",
+    "photo-f900000000041-960.webp",
+    "photo-f900000000041.webp"
+   ],
+   "id": "Gla6keSyoU0",
+   "alt": "Garrafa long neck de Corona com limão",
+   "by": "Jeff Vanderspank",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/Gla6keSyoU0",
+   "source": "Unsplash"
+  },
+  {
+   "file": "photo-f900000000042.webp",
+   "files": [
+    "photo-f900000000042-500.webp",
+    "photo-f900000000042-960.webp",
+    "photo-f900000000042.webp"
+   ],
+   "id": "BzRY-cmXyC0",
+   "alt": "Garrafas long neck de Budweiser no gelo",
+   "by": "Giuliana Catachura",
+   "licence": "Licença Unsplash",
+   "licenceUrl": "https://unsplash.com/license",
+   "page": "https://unsplash.com/photos/BzRY-cmXyC0",
+   "source": "Unsplash"
+  }
+ ]
+}

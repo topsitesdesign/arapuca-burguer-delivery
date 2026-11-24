@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{LOJA_NOME}} · {{LOJA_DESCRICAO}}</title>
+<meta name="description" content="{{META_DESCRICAO}}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0d0a08">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="{{LOJA_NOME}} · {{LOJA_DESCRICAO}}">
+<meta property="og:description" content="{{OG_DESCRICAO}}">
+<meta property="og:image" content="share.jpg">
+<link rel="preload" as="image" href="assets/img/photo-topo-1280.webp" imagesrcset="assets/img/photo-topo-960.webp 960w, assets/img/photo-topo-1280.webp 1280w, assets/img/photo-topo.webp 1920w" imagesizes="(max-width: 767px) 100vw, 70vw" fetchpriority="high">
+<link rel="stylesheet" href="css/site.css">
+<link rel="modulepreload" href="js/data.js">
+<link rel="modulepreload" href="js/store.js">
+</head>
+<body>
+<a class="skip" href="#cardapio">Pular para o cardápio</a>
+
+<header class="topbar on-dark">
+  <div class="wrap-wide topbar__in">
+    <a class="brand" href="#inicio"><img class="brand__logo" alt="{{LOJA_NOME}}" hidden><span class="brand__name">{{LOJA_NOME}}</span></a>
+    <p class="status" data-status><span class="status__dot" aria-hidden="true"></span><span class="status__text" data-status-text>Aberto agora</span><span class="status__eta" data-status-eta>{{PRAZO_ENTREGA}}</span></p>
+    <nav class="mainnav" aria-label="Principal">
+      <a href="#inicio">Início</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <div class="topbar__actions">
+      <a class="btn btn--ghost btn--track" href="pedido.html" aria-label="Acompanhar pedido">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h3m14 0h3M12 2v3m0 14v3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>Acompanhar pedido</span>
+      </a>
+      <button class="btn btn--primary btn--bag" type="button" data-cart-open data-bump aria-label="Abrir sacola">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg>
+        <span class="btn__label">Sacola</span><span class="count" data-cart-count>0</span>
+      </button>
+      <button class="iconbtn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobilemenu" id="menu" aria-label="Menu" hidden>
+    <ul class="wrap-wide">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#cardapio">Cardápio</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+      <li><a href="pedido.html">Acompanhar pedido <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h3m14 0h3M12 2v3m0 14v3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo">
+  <!-- ============================================================ banner -->
+  <section class="hero on-dark" id="inicio" aria-labelledby="hero-h">
+    <div class="hero__media">
+      <img src="assets/img/photo-topo-1280.webp" srcset="assets/img/photo-topo-960.webp 960w, assets/img/photo-topo-1280.webp 1280w, assets/img/photo-topo.webp 1920w" sizes="(max-width: 767px) 100vw, 70vw" width="1920" height="1280" alt="Hambúrguer com bacon e queijo derretido no pão brioche, sobre fundo escuro" fetchpriority="high" decoding="async">
+    </div>
+    <div class="wrap-wide hero__in">
+      <p class="status hero__status" data-status><span class="status__dot" aria-hidden="true"></span><span class="status__text" data-status-text>Aberto agora</span><span class="status__eta" data-status-eta>{{PRAZO_ENTREGA}}</span></p>
+      <h1 class="title hero__title" id="hero-h"><span>{{HERO_TITULO_1}}</span> <span class="accent">{{HERO_TITULO_2}}</span></h1>
+      <p class="hero__lead">{{HERO_APOIO}} {{HERO_ENTREGA}}</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary btn--lg btn--glow" href="#cardapio" data-cta-hero><span data-cta-rotulo>{{BOTAO_TOPO}}</span> <svg class="ic arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7l7 7l-7 7"/></svg></a>
+        <!--se:promo--><button class="coupon" type="button" data-apply-coupon="{{CUPOM_CODIGO}}" aria-pressed="false">
+          <span class="coupon__k">Cupom</span><span class="coupon__code">{{CUPOM_CODIGO}}</span><span class="coupon__off">{{CUPOM_CURTO}}</span>
+          <svg class="ic coupon__ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        </button><p class="hero__rule">{{CUPOM_REGRA}}</p><!--/se:promo-->
+      </div>
+      <ul class="hero__facts">
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-horario-resumo>{{HORARIO_RESUMO}}</span></li>
+        <!--se:entrega--><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3l4-3l2 3h2"/></svg>{{TAXA_DESDE}}</li><!--/se:entrega-->
+        <!--se:retirada--><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/><path d="M2.5 7.5 5 3h14l2.5 4.5a2.5 2.5 0 0 1-4.75 1 2.5 2.5 0 0 1-4.75 0 2.5 2.5 0 0 1-4.75 0A2.5 2.5 0 0 1 2.5 7.5"/></svg>Retirada grátis no balcão</li><!--/se:retirada-->
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================ categorias -->
+  <nav class="catbar on-dark" aria-label="Categorias do cardápio">
+    <div class="wrap catbar__in" data-pills>
+      <button class="pill" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+      <button class="pill" type="button" data-filtro="destaques" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0a5 5 0 0 1 1-3a1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></svg>Destaques</button>
+    </div>
+  </nav>
+
+  <!-- ============================================================ mais pedidos -->
+  <section class="sec" id="destaques" aria-labelledby="destaques-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <div>
+          <p class="eyebrow">Destaques da casa</p>
+          <h2 class="title sec__title" id="destaques-h">Mais pedidos</h2>
+        </div>
+        <p class="sec__aside">Os itens que mais saem da cozinha.</p>
+      </div>
+      <div class="rail" data-rail>
+        <button class="rail__btn rail__btn--prev" type="button" data-rail-dir="-1" aria-label="Ver os anteriores" disabled><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18l-6-6l6-6"/></svg></button>
+        <div class="rail__track" data-rail-track tabindex="0" role="region" aria-label="Mais pedidos: role para o lado para ver mais"></div>
+        <button class="rail__btn rail__btn--next" type="button" data-rail-dir="1" aria-label="Ver os próximos"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18l6-6l-6-6"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ cardápio -->
+  <section class="sec" id="cardapio" aria-labelledby="cardapio-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <div>
+          <h2 class="title sec__title" id="cardapio-h">Cardápio</h2>
+        </div>
+        <p class="sec__aside">Toque no burguer para turbinar com adicionais ou fazer o combo.</p>
+      </div>
+      <div class="promos" data-banners hidden></div>
+      <div data-menu aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ entrega e retirada -->
+  <section class="sec" id="entrega" aria-labelledby="entrega-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <div>
+          <h2 class="title sec__title" id="entrega-h">Entrega e retirada</h2>
+        </div>
+        <p class="sec__aside"><span data-endereco>{{LOJA_RUA}}</span>, <span data-bairro>{{LOJA_BAIRRO}}</span>. <a class="link" data-mapa href="{{MAPA_URL}}" target="_blank" rel="noopener">Ver no mapa</a></p>
+      </div>
+      <div class="info-grid">
+        <article class="info">
+          <div class="info__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3l4-3l2 3h2"/></svg></div>
+          <h3 class="title info__title">Taxa por bairro</h3>
+          <ul class="rows" data-areas>{{AREAS_LISTA_HTML}}</ul>
+        </article>
+        <article class="info">
+          <div class="info__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3 class="title info__title">Horário</h3>
+          <ul class="rows" data-horarios>{{HORARIOS_LISTA_HTML}}</ul>
+          <p class="info__note">Fora do horário, deixe o pedido agendado para quando a gente abrir.</p>
+        </article>
+        <article class="info">
+          <div class="info__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></div>
+          <h3 class="title info__title">Pagamento na entrega</h3>
+          <ul class="chips">
+            <li data-pag="dinheiro"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>Dinheiro</li>
+            <li data-pag="pix"><img src="assets/icons/pix.svg" alt="" width="17" height="17" loading="lazy">Pix</li>
+            <li data-pag="debito"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>Débito</li>
+            <li data-pag="credito"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>Crédito</li>
+          </ul>
+          <p class="info__note">Você paga quando o pedido chega, ou no balcão. O site não cobra nada.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ dúvidas -->
+  <section class="sec" id="duvidas" aria-labelledby="duvidas-h">
+    <div class="wrap">
+      <div class="sec__head sec__head--center">
+        <h2 class="title sec__title" id="duvidas-h">Dúvidas</h2>
+        <p class="sec__aside">Não achou a resposta? Chame no WhatsApp.</p>
+      </div>
+      <div class="faq__list">
+        <details class="faq__item" name="faq">
+          <summary>Que horas vocês abrem?<span class="faq__plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14m-7-7v14"/></svg></span></summary>
+          <p>{{FAQ_HORARIO}}</p>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary>Como eu pago?<span class="faq__plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14m-7-7v14"/></svg></span></summary>
+          <p>{{FAQ_PAGAMENTO}}</p>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary>Quanto é a entrega?<span class="faq__plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14m-7-7v14"/></svg></span></summary>
+          <p>{{FAQ_TAXAS}}</p>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary>Em quanto tempo chega?<span class="faq__plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14m-7-7v14"/></svg></span></summary>
+          <p>{{FAQ_PRAZO}}</p>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary>Posso agendar o pedido?<span class="faq__plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14m-7-7v14"/></svg></span></summary>
+          <p>{{FAQ_AGENDAR}}</p>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary>Como acompanho meu pedido?<span class="faq__plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14m-7-7v14"/></svg></span></summary>
+          <p>Depois de enviar, você recebe um link com cada etapa. Também dá para consultar em Acompanhar pedido, com o número e o seu WhatsApp.</p>
+        </details>
+        <!--se:retirada--><details class="faq__item" name="faq">
+          <summary>Dá para buscar no balcão?<span class="faq__plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14m-7-7v14"/></svg></span></summary>
+          <p>Dá. Escolha Retirada na sacola e busque em {{ENDERECO_COMPLETO}}. Sem taxa.</p>
+        </details><!--/se:retirada-->
+        <!--se:promo--><details class="faq__item" name="faq">
+          <summary>Como uso o cupom {{CUPOM_CODIGO}}?<span class="faq__plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14m-7-7v14"/></svg></span></summary>
+          <p>{{FAQ_CUPOM}}</p>
+        </details><!--/se:promo-->
+      </div>
+      <p class="faq__more"><a class="btn btn--ghost" href="{{WHATS_URL}}" data-whats="Olá, {{LOJA_NOME}}! Tenho uma dúvida sobre o pedido." target="_blank" rel="noopener"><img src="assets/icons/whatsapp.svg" alt="" width="18" height="18" loading="lazy">Chamar no WhatsApp</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer on-dark" id="contato">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="#inicio"><img class="brand__logo" alt="{{LOJA_NOME}}" hidden><span class="brand__name">{{LOJA_NOME}}</span></a>
+        <p class="footer__about">{{RODAPE_SOBRE}}</p>
+      </div>
+      <div>
+        <h2 class="footer__h">Endereço</h2>
+        <ul class="footer__list">
+          <li><span data-endereco>{{LOJA_RUA}}</span><br><span data-bairro>{{LOJA_BAIRRO}}</span></li>
+          <li><a data-mapa href="{{MAPA_URL}}" target="_blank" rel="noopener">Ver no mapa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer__h">Horário</h2>
+        <ul class="footer__list" data-horarios-rodape>{{HORARIOS_RODAPE_HTML}}</ul>
+      </div>
+      <div>
+        <h2 class="footer__h">Contato</h2>
+        <ul class="footer__list">
+          <li><a href="{{WHATS_URL}}" data-whats="Olá, {{LOJA_NOME}}!" target="_blank" rel="noopener" data-whats-texto>WhatsApp {{WHATS_EXIBICAO}}</a></li>
+          <li><a href="pedido.html">Acompanhar pedido</a></li>
+          <li><a href="#duvidas">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© {{ANO}} {{LOJA_NOME}} · Pagamento somente na entrega ou na retirada.</p>
+      <p class="footer__links"><a href="privacidade.html">Privacidade</a><button class="linkbtn" type="button" data-apagar-dados>Apagar meus dados deste aparelho</button><a href="creditos.html">Créditos das fotos</a></p>
+    </div>
+    <p class="muted footer__apagado" data-apagar-msg role="status" hidden></p>
+  </div>
+</footer>
+
+<!-- ============================================================ modal do produto -->
+<dialog class="pm" id="produto" aria-labelledby="pm-nome">
+  <form class="pm__form" novalidate>
+    <div class="pm__media"><img data-pm-img alt="" width="960" height="768"></div>
+    <div class="pm__body">
+      <button class="xbtn pm__close" type="button" data-close aria-label="Fechar">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="pm__scroll">
+        <p class="eyebrow pm__cat" data-pm-cat></p>
+        <h2 class="title pm__name" id="pm-nome" data-pm-nome></h2>
+        <p class="pm__preco" data-pm-preco hidden></p>
+        <p class="pm__desc" data-pm-desc></p>
+        <p class="pm__ingr"><b>Ingredientes:</b> <span data-pm-ingr></span></p>
+        <div data-pm-grupos></div>
+        <fieldset class="opts" data-pm-remover>
+          <legend class="opts__head"><span class="opts__title">Quer tirar algo?</span><span class="opts__rule">Opcional</span></legend>
+          <div data-pm-remover-list></div>
+        </fieldset>
+        <div class="field pm__obs">
+          <label for="pm-obs">Observação</label>
+          <textarea class="textarea" id="pm-obs" maxlength="140" rows="2" placeholder="Ex.: cortar ao meio, molho à parte"></textarea>
+        </div>
+        <p class="pm__erro" data-pm-erro role="alert" hidden></p>
+      </div>
+      <div class="pm__foot">
+        <div class="qty" role="group" aria-label="Quantidade">
+          <button type="button" data-qty="-1" aria-label="Diminuir quantidade"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+          <span class="qty__val" data-pm-qtd aria-live="polite">1</span>
+          <button type="button" data-qty="1" aria-label="Aumentar quantidade"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14m-7-7v14"/></svg></button>
+        </div>
+        <button class="btn btn--primary pm__add" type="submit"><span>Adicionar</span><span data-pm-total>R$ 0,00</span></button>
+      </div>
+    </div>
+  </form>
+</dialog>
+
+<!-- ============================================================ sacola -->
+<dialog class="drawer" id="sacola" aria-labelledby="sacola-h">
+  <div class="drawer__head">
+    <h2 class="title drawer__title" id="sacola-h" tabindex="-1">Sua sacola</h2>
+    <button class="xbtn" type="button" data-close aria-label="Fechar sacola">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer__body" data-sc-body>
+    <div data-sc-conta></div>
+    <div data-sc-itens></div>
+    <div data-sc-ck></div>
+  </div>
+</dialog>
+
+<!-- ============================================================ barra da sacola (celular), botões flutuantes, avisos -->
+<div class="cartbar" data-cartbar hidden>
+  <button class="cartbar__btn" type="button" data-cart-open>
+    <span class="cartbar__l"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg>Ver sacola · <span data-cart-itens>0 itens</span></span>
+    <span class="cartbar__r" data-cart-total>R$ 0,00</span>
+  </button>
+</div>
+
+<div class="fabs">
+  <button class="fab fab--bag" type="button" data-cart-open data-bump aria-label="Abrir sacola">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg>
+    <span class="fab__count" data-cart-count>0</span>
+  </button>
+</div>
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# o site roda em Linux: textos sempre com quebra de linha LF (scripts .sh quebram com CRLF)
+* text=auto eol=lf
+*.webp binary
+*.png binary
+*.jpg binary
+*.woff2 binary
+*.ico binary

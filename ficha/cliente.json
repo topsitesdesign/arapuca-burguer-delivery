@@ -1,0 +1,763 @@
+{
+  "_notas": {
+    "email": "E-mail da loja não informado. O gerador exige um e-mail, então a ficha usa um endereço provisório (.invalid); depois de gerar, o e-mail ficou em branco na semente (site/app/sql/semente.php).",
+    "bairros": "Bairros e taxas FICTÍCIOS, a pedido do usuário, só para testar. Trocar em Painel > Áreas de entrega antes de publicar.",
+    "horarios": "Informado 18:00 às 00:00, sem dias de folga: considerado todos os dias.",
+    "fotos": "Fotos provisórias do Unsplash e do Pexels (originais em ficha/fotos, fora do Git). Autor e código de cada uma em creditosFotos.",
+    "combo": "Grupos Turbine seu burguer e Combo ligados aos 7 itens de Hambúrgueres, inclusive a Baguete.",
+    "espetinhos": "Acompanhamentos dos espetinhos na descrição de cada espetinho (o site não mostra a descrição da categoria).",
+    "instagram": "Instagram @arapucaburguer: o modelo não tem campo de Instagram; não aparece no site."
+  },
+  "slug": "arapuca-burguer",
+  "loja": {
+    "nome": "Arapuca Burguer",
+    "razao": "",
+    "cnpj": "",
+    "telefone": "",
+    "whatsapp": "(81) 98863-6739",
+    "email": "sem-email@arapuca.invalid",
+    "cep": "50710-100",
+    "rua": "Rua Real da Torre",
+    "numero": "807",
+    "bairro": "Madalena",
+    "cidade": "Recife",
+    "uf": "PE"
+  },
+  "marca": {
+    "cor": "#f7741d",
+    "logo": "logo.png",
+    "fotoTopo": "fotos/topo-hero.jpg",
+    "fotoTopoAlt": "Hambúrguer com bacon e queijo derretido no pão brioche, sobre fundo escuro"
+  },
+  "textos": {
+    "slogan1": "Burguer na parrilla,",
+    "slogan2": "na sua porta.",
+    "apoio": "Blend bovino de 150 g na parrilla no pão brioche. Turbine o seu com adicionais, de bacon a costela desfiada.",
+    "descricao": "Hamburgueria artesanal na Madalena, Recife",
+    "botao": "Escolher meu burguer",
+    "cardapio": "Toque no burguer para turbinar com adicionais ou fazer o combo."
+  },
+  "cardapio": {
+    "categorias": [
+      {
+        "id": "hamburgueres",
+        "nome": "Hambúrgueres",
+        "descricao": "Turbine com adicionais. Combo: batata e refri junto com o burguer por R$ 14,99.",
+        "icone": "burger"
+      },
+      {
+        "id": "batatas",
+        "nome": "Batatas",
+        "descricao": "",
+        "icone": "package"
+      },
+      {
+        "id": "caldinhos",
+        "nome": "Caldinhos",
+        "descricao": "",
+        "icone": "utensils"
+      },
+      {
+        "id": "espetinhos",
+        "nome": "Espetinhos",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis).",
+        "icone": "flame"
+      },
+      {
+        "id": "bebidas",
+        "nome": "Bebidas",
+        "descricao": "",
+        "icone": "cup"
+      }
+    ],
+    "grupos": [
+      {
+        "id": "g-turbine",
+        "nome": "Turbine seu burguer",
+        "tipo": "multiplo",
+        "min": 0,
+        "max": 21,
+        "opcoes": [
+          {
+            "nome": "Bacon",
+            "preco": 7
+          },
+          {
+            "nome": "Queijo coalho",
+            "preco": 6
+          },
+          {
+            "nome": "Cheddar cremoso",
+            "preco": 6
+          },
+          {
+            "nome": "Cheddar fatiado",
+            "preco": 3
+          },
+          {
+            "nome": "Mussarela maçaricada",
+            "preco": 5
+          },
+          {
+            "nome": "Gorgonzola",
+            "preco": 8
+          },
+          {
+            "nome": "Geleia (consultar sabores)",
+            "preco": 5
+          },
+          {
+            "nome": "Molho extra",
+            "preco": 2
+          },
+          {
+            "nome": "Barbecue",
+            "preco": 1.99
+          },
+          {
+            "nome": "Onion rings",
+            "preco": 5
+          },
+          {
+            "nome": "Cebola crispy",
+            "preco": 4
+          },
+          {
+            "nome": "Cream cheese",
+            "preco": 6
+          },
+          {
+            "nome": "Blend bovino 150g",
+            "preco": 9
+          },
+          {
+            "nome": "Salada (alface e tomate)",
+            "preco": 4
+          },
+          {
+            "nome": "Picles (novo)",
+            "preco": 5
+          },
+          {
+            "nome": "Nutella (novo)",
+            "preco": 8
+          },
+          {
+            "nome": "Ovo (novo)",
+            "preco": 3
+          },
+          {
+            "nome": "Abacaxi grelhado (novo)",
+            "preco": 5
+          },
+          {
+            "nome": "Cupim desfiado",
+            "preco": 9
+          },
+          {
+            "nome": "Costela desfiada",
+            "preco": 9
+          },
+          {
+            "nome": "Charque desfiada",
+            "preco": 9
+          }
+        ]
+      },
+      {
+        "id": "g-combo",
+        "nome": "Combo",
+        "tipo": "multiplo",
+        "min": 0,
+        "max": 1,
+        "opcoes": [
+          {
+            "nome": "Batata e refri",
+            "preco": 14.99
+          }
+        ]
+      }
+    ],
+    "produtos": [
+      {
+        "id": "monte-do-seu-jeito",
+        "nome": "Monte do seu jeito",
+        "categoria": "hamburgueres",
+        "preco": 29.99,
+        "descricao": "Pão brioche, blend bovino de 150 g na parrilla, cheddar fatiado, cebola caramelizada e molho especial da casa. Monte do seu jeito com os adicionais.",
+        "ingredientes": [
+          "Pão brioche",
+          "Blend bovino 150 g na parrilla",
+          "Cheddar fatiado",
+          "Cebola caramelizada",
+          "Molho especial da casa"
+        ],
+        "grupos": [
+          "g-turbine",
+          "g-combo"
+        ],
+        "foto": "fotos/monte-do-seu-jeito.jpg",
+        "alt": "Hambúrguer com cheddar e cebola caramelizada, sobre fundo escuro"
+      },
+      {
+        "id": "que-zuada",
+        "nome": "Que Zuada Hambúrguer na Parrilla 150g",
+        "categoria": "hamburgueres",
+        "preco": 29.99,
+        "descricao": "Blend de 150 g na parrilla, pão brioche, queijo fatiado e cebola.",
+        "ingredientes": [
+          "Blend 150 g na parrilla",
+          "Pão brioche",
+          "Queijo fatiado",
+          "Cebola"
+        ],
+        "grupos": [
+          "g-turbine",
+          "g-combo"
+        ],
+        "foto": "fotos/que-zuada.jpg",
+        "alt": "Hambúrguer com queijo e cebola num prato escuro"
+      },
+      {
+        "id": "arapuca-bacon",
+        "nome": "Arapuca Hambúrguer com Bacon 150g",
+        "categoria": "hamburgueres",
+        "preco": 35.99,
+        "descricao": "Blend de 150 g na parrilla, pão brioche, queijo fatiado, tiras de bacon e cebola.",
+        "ingredientes": [
+          "Blend 150 g na parrilla",
+          "Pão brioche",
+          "Queijo fatiado",
+          "Tiras de bacon",
+          "Cebola"
+        ],
+        "grupos": [
+          "g-turbine",
+          "g-combo"
+        ],
+        "foto": "fotos/arapuca-bacon.jpg",
+        "alt": "Hambúrguer com bacon e cheddar derretido"
+      },
+      {
+        "id": "vamo-pro-choque",
+        "nome": "Vamo pro choque",
+        "categoria": "hamburgueres",
+        "preco": 36.99,
+        "descricao": "Pão brioche, blend de 150 g na parrilla, queijo coalho, tiras de bacon e cebola caramelizada.",
+        "ingredientes": [
+          "Pão brioche",
+          "Blend 150 g na parrilla",
+          "Queijo coalho",
+          "Tiras de bacon",
+          "Cebola caramelizada"
+        ],
+        "grupos": [
+          "g-turbine",
+          "g-combo"
+        ],
+        "foto": "fotos/vamo-pro-choque.jpg",
+        "alt": "Hambúrguer com bacon e queijo ao lado de batatas fritas numa tábua"
+      },
+      {
+        "id": "e-mais-pra-ele",
+        "nome": "É mais pra ele",
+        "categoria": "hamburgueres",
+        "preco": 38.99,
+        "descricao": "Pão brioche, blend de 150 g na parrilla, queijo fatiado, tiras de bacon e cebola caramelizada.",
+        "ingredientes": [
+          "Pão brioche",
+          "Blend 150 g na parrilla",
+          "Queijo fatiado",
+          "Tiras de bacon",
+          "Cebola caramelizada"
+        ],
+        "grupos": [
+          "g-turbine",
+          "g-combo"
+        ],
+        "foto": "fotos/e-mais-pra-ele.jpg",
+        "alt": "Hambúrguer com bacon e queijo, sobre fundo escuro"
+      },
+      {
+        "id": "bololo",
+        "nome": "Bololô",
+        "categoria": "hamburgueres",
+        "preco": 49.99,
+        "descricao": "Pão brioche, blend de 150 g na parrilla, queijo fatiado, queijo coalho e tiras de bacon.",
+        "ingredientes": [
+          "Pão brioche",
+          "Blend 150 g na parrilla",
+          "Queijo fatiado",
+          "Queijo coalho",
+          "Tiras de bacon"
+        ],
+        "grupos": [
+          "g-turbine",
+          "g-combo"
+        ],
+        "foto": "fotos/bololo.jpg",
+        "alt": "Hambúrguer alto com bacon e queijo num prato azul"
+      },
+      {
+        "id": "baguete-picanha-argentina",
+        "nome": "Baguete Picanha Argentina",
+        "categoria": "hamburgueres",
+        "preco": 39.99,
+        "selo": "Novidade",
+        "descricao": "Novidade: pão da Quantum de provolone, picanha argentina, queijo mussarela, cebola caramelizada, alface, tomate e maionese especial da casa.",
+        "ingredientes": [
+          "Pão da Quantum de provolone",
+          "Picanha argentina",
+          "Queijo mussarela",
+          "Cebola caramelizada",
+          "Alface",
+          "Tomate",
+          "Maionese especial da casa"
+        ],
+        "grupos": [
+          "g-turbine",
+          "g-combo"
+        ],
+        "foto": "fotos/baguete-picanha.jpg",
+        "alt": "Sanduíche de baguete com carne, queijo derretido e folhas"
+      },
+      {
+        "id": "batata-p",
+        "nome": "Batata P",
+        "categoria": "batatas",
+        "preco": 13.99,
+        "foto": "fotos/batata-p.jpg",
+        "alt": "Porção de batata frita numa cestinha de metal"
+      },
+      {
+        "id": "batata-g",
+        "nome": "Batata G",
+        "categoria": "batatas",
+        "preco": 22.9,
+        "foto": "fotos/batata-g.jpg",
+        "alt": "Cesta de batatas fritas com molho"
+      },
+      {
+        "id": "batata-cheddar-bacon",
+        "nome": "Batata Cheddar e Bacon",
+        "categoria": "batatas",
+        "preco": 32.9,
+        "foto": "fotos/batata-cheddar-bacon.jpg",
+        "alt": "Batata frita coberta com cheddar, bacon e cebolinha"
+      },
+      {
+        "id": "batata-charque-cream-cheese",
+        "nome": "Batata com Charque e Cream Cheese",
+        "categoria": "batatas",
+        "preco": 29.99,
+        "foto": "fotos/batata-charque.jpg",
+        "alt": "Batata frita coberta com queijo cremoso e carne desfiada"
+      },
+      {
+        "id": "caldinho-feijao",
+        "nome": "Caldinho de feijão",
+        "categoria": "caldinhos",
+        "preco": 10,
+        "foto": "fotos/caldinho-feijao.jpg",
+        "alt": "Caldinho de feijão numa panelinha"
+      },
+      {
+        "id": "caldinho-costela",
+        "nome": "Caldinho de costela",
+        "categoria": "caldinhos",
+        "preco": 16,
+        "foto": "fotos/caldinho-costela.jpg",
+        "alt": "Caldinhos servidos em canecas, com limão"
+      },
+      {
+        "id": "caldinho-caldeirada",
+        "nome": "Caldinho de caldeirada",
+        "categoria": "caldinhos",
+        "preco": 15,
+        "foto": "fotos/caldeirada.jpg",
+        "alt": "Caldo de frutos do mar com camarão e pimentão"
+      },
+      {
+        "id": "espetinho-salsichao",
+        "nome": "Espetinho de salsichão",
+        "categoria": "espetinhos",
+        "preco": 8,
+        "foto": "fotos/salsichao.jpg",
+        "alt": "Salsichões na grelha",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-pao-de-alho",
+        "nome": "Espetinho de pão de alho",
+        "categoria": "espetinhos",
+        "preco": 10,
+        "foto": "fotos/pao-de-alho.jpg",
+        "alt": "Pão de alho gratinado sobre pedra escura",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-queijo-coalho",
+        "nome": "Espetinho de queijo coalho",
+        "categoria": "espetinhos",
+        "preco": 12,
+        "foto": "fotos/queijo-coalho.jpg",
+        "alt": "Fatias de queijo grelhado com marcas da grelha",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-carne",
+        "nome": "Espetinho de carne",
+        "categoria": "espetinhos",
+        "preco": 15,
+        "foto": "fotos/espeto-carne.jpg",
+        "alt": "Espetinhos de carne com farofa e vinagrete",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-frango",
+        "nome": "Espetinho de frango",
+        "categoria": "espetinhos",
+        "preco": 15,
+        "foto": "fotos/espeto-frango.jpg",
+        "alt": "Espetinho de frango na brasa",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-frango-bacon",
+        "nome": "Espetinho de frango com bacon",
+        "categoria": "espetinhos",
+        "preco": 15,
+        "foto": "fotos/espeto-frango-bacon.jpg",
+        "alt": "Espetinho de frango enrolado no bacon",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-frango-queijo",
+        "nome": "Espetinho de frango com queijo",
+        "categoria": "espetinhos",
+        "preco": 15,
+        "foto": "fotos/espeto-frango-queijo.jpg",
+        "alt": "Espetinhos de frango assando sobre as brasas",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-coracao",
+        "nome": "Espetinho de coração",
+        "categoria": "espetinhos",
+        "preco": 15,
+        "foto": "fotos/espeto-coracao.jpg",
+        "alt": "Espetinhos assando na brasa com fumaça",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-carne-bacon",
+        "nome": "Espetinho de carne com bacon",
+        "categoria": "espetinhos",
+        "preco": 15,
+        "foto": "fotos/espeto-carne-bacon.jpg",
+        "alt": "Espetinhos de carne e bacon",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-carne-de-sol-queijo",
+        "nome": "Espetinho de carne de sol com queijo",
+        "categoria": "espetinhos",
+        "preco": 15,
+        "foto": "fotos/espeto-carne-de-sol-queijo.jpg",
+        "alt": "Espetinhos de carne e queijo na churrasqueira",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-costelinha-barbecue",
+        "nome": "Espetinho de costelinha suína com barbecue",
+        "categoria": "espetinhos",
+        "preco": 18,
+        "foto": "fotos/espeto-costelinha.jpg",
+        "alt": "Costelinha suína com barbecue na grelha",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-cupim",
+        "nome": "Espetinho de cupim",
+        "categoria": "espetinhos",
+        "preco": 18,
+        "foto": "fotos/espeto-cupim.jpg",
+        "alt": "Carne assando no espeto",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-picanha",
+        "nome": "Espetinho de picanha bovina",
+        "categoria": "espetinhos",
+        "preco": 18,
+        "foto": "fotos/espeto-picanha.jpg",
+        "alt": "Picanha no espeto",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "espetinho-file-de-bode",
+        "nome": "Espetinho de filé de bode",
+        "categoria": "espetinhos",
+        "preco": 18,
+        "foto": "fotos/espeto-file-de-bode.jpg",
+        "alt": "Três espetinhos de carne com batata frita e tomate",
+        "descricao": "Acompanhamentos: macaxeira, vinagrete, farofa, creme de alho, barbecue e alho torrado (consulte os sabores disponíveis)."
+      },
+      {
+        "id": "agua-sem-gas",
+        "nome": "Água mineral sem gás 500ml",
+        "categoria": "bebidas",
+        "preco": 5.99,
+        "foto": "fotos/agua-sem-gas.jpg",
+        "alt": "Garrafa de água mineral"
+      },
+      {
+        "id": "agua-com-gas",
+        "nome": "Água mineral com gás 500ml",
+        "categoria": "bebidas",
+        "preco": 5.99,
+        "foto": "fotos/agua-com-gas.jpg",
+        "alt": "Água com gás caindo num copo"
+      },
+      {
+        "id": "antarctica-1-litro",
+        "nome": "Antárctica 1 litro",
+        "categoria": "bebidas",
+        "preco": 14.99,
+        "foto": "fotos/antarctica-1l.jpg",
+        "alt": "Copo de refrigerante com gelo"
+      },
+      {
+        "id": "antarctica-lata",
+        "nome": "Antárctica lata 350ml",
+        "categoria": "bebidas",
+        "preco": 9.99,
+        "foto": "fotos/antarctica-lata.jpg",
+        "alt": "Lata de Guaraná Antarctica"
+      },
+      {
+        "id": "antarctica-zero-lata",
+        "nome": "Antárctica Zero lata 350ml",
+        "categoria": "bebidas",
+        "preco": 9.99,
+        "foto": "fotos/antarctica-zero.jpg",
+        "alt": "Refrigerante com gelo"
+      },
+      {
+        "id": "coca-cola-lata",
+        "nome": "Coca-Cola lata 350ml",
+        "categoria": "bebidas",
+        "preco": 9.99,
+        "foto": "fotos/coca-lata.jpg",
+        "alt": "Lata de Coca-Cola gelada"
+      },
+      {
+        "id": "coca-cola-zero-lata",
+        "nome": "Coca-Cola Zero lata 350ml",
+        "categoria": "bebidas",
+        "preco": 9.99,
+        "foto": "fotos/coca-zero.jpg",
+        "alt": "Lata de Coca-Cola Zero gelada"
+      },
+      {
+        "id": "schweppes-citrus",
+        "nome": "Schweppes Citrus",
+        "categoria": "bebidas",
+        "preco": 9.99,
+        "foto": "fotos/schweppes-citrus.jpg",
+        "alt": "Garrafa de Schweppes com limões"
+      },
+      {
+        "id": "h2o-limoneto",
+        "nome": "H2O Limoneto",
+        "categoria": "bebidas",
+        "preco": 11.99,
+        "foto": "fotos/h2o-limoneto.jpg",
+        "alt": "Limões e bolhas sobre fundo escuro"
+      },
+      {
+        "id": "h2o-tradicional",
+        "nome": "H2O Tradicional",
+        "categoria": "bebidas",
+        "preco": 11.99,
+        "foto": "fotos/h2o-tradicional.jpg",
+        "alt": "Copo de bebida gaseificada com limão"
+      },
+      {
+        "id": "heineken-long-neck",
+        "nome": "Heineken Long Neck 330ml",
+        "categoria": "bebidas",
+        "preco": 13.99,
+        "foto": "fotos/heineken.jpg",
+        "alt": "Garrafa long neck de Heineken"
+      },
+      {
+        "id": "suco",
+        "nome": "Suco 350ml",
+        "categoria": "bebidas",
+        "preco": 7,
+        "foto": "fotos/suco.jpg",
+        "alt": "Copo de suco com rodela de laranja"
+      },
+      {
+        "id": "corona-long-neck",
+        "nome": "Corona Long Neck",
+        "categoria": "bebidas",
+        "preco": 12,
+        "foto": "fotos/corona.jpg",
+        "alt": "Garrafa long neck de Corona com limão"
+      },
+      {
+        "id": "budweiser-long-neck",
+        "nome": "Budweiser Long Neck",
+        "categoria": "bebidas",
+        "preco": 10,
+        "foto": "fotos/budweiser.jpg",
+        "alt": "Garrafas long neck de Budweiser no gelo"
+      }
+    ],
+    "areas": [
+      {
+        "id": "madalena",
+        "nome": "Madalena",
+        "taxa": 5,
+        "tempoExtra": 0
+      },
+      {
+        "id": "torre",
+        "nome": "Torre",
+        "taxa": 6,
+        "tempoExtra": 0
+      },
+      {
+        "id": "ilha-do-retiro",
+        "nome": "Ilha do Retiro",
+        "taxa": 6,
+        "tempoExtra": 0
+      },
+      {
+        "id": "zumbi",
+        "nome": "Zumbi",
+        "taxa": 7,
+        "tempoExtra": 0
+      },
+      {
+        "id": "prado",
+        "nome": "Prado",
+        "taxa": 7,
+        "tempoExtra": 0
+      }
+    ]
+  },
+  "horarios": [
+    {
+      "dia": "Segunda",
+      "aberto": true,
+      "abre": "18:00",
+      "fecha": "00:00"
+    },
+    {
+      "dia": "Terça",
+      "aberto": true,
+      "abre": "18:00",
+      "fecha": "00:00"
+    },
+    {
+      "dia": "Quarta",
+      "aberto": true,
+      "abre": "18:00",
+      "fecha": "00:00"
+    },
+    {
+      "dia": "Quinta",
+      "aberto": true,
+      "abre": "18:00",
+      "fecha": "00:00"
+    },
+    {
+      "dia": "Sexta",
+      "aberto": true,
+      "abre": "18:00",
+      "fecha": "00:00"
+    },
+    {
+      "dia": "Sábado",
+      "aberto": true,
+      "abre": "18:00",
+      "fecha": "00:00"
+    },
+    {
+      "dia": "Domingo",
+      "aberto": true,
+      "abre": "18:00",
+      "fecha": "00:00"
+    }
+  ],
+  "pagamentos": {
+    "pix": true,
+    "chavePix": "",
+    "credito": true,
+    "debito": true,
+    "bandeiras": [],
+    "dinheiro": true,
+    "troco": true,
+    "naEntrega": true,
+    "online": false
+  },
+  "entrega": {
+    "entrega": true,
+    "retirada": true,
+    "prazoEntrega": "40–60 min",
+    "prazoRetirada": "20–30 min"
+  },
+  "operacao": {
+    "tempoMin": 40,
+    "tempoMax": 60
+  },
+  "creditosFotos": {
+    "fonte": "Unsplash (licença Unsplash) e Pexels (licença Pexels): uso comercial gratuito, sem atribuição obrigatória",
+    "topo": "Tá Focando · Unsplash S6bhxzVitB4",
+    "monte-do-seu-jeito": "amirali mirhashemian · Unsplash j-MPEwH9LM4",
+    "que-zuada": "Arvid Skywalker · Unsplash knraRhF5aKA",
+    "arapuca-bacon": "amirali mirhashemian · Unsplash 9Bqiusimq6M",
+    "vamo-pro-choque": "Jonathan Borba · Unsplash 1kA3lACHeqk",
+    "e-mais-pra-ele": "Carlos Davila Cepeda · Unsplash yVFr_D_PxkQ",
+    "bololo": "Fidel Fernando · Unsplash xrdbUgwGWfo",
+    "baguete-picanha-argentina": "chez gilbert saigon · Unsplash KTId3EPY6aE",
+    "batata-p": "Mitchell Luo · Unsplash ChXHveqrb28",
+    "batata-g": "Logan Weaver · Unsplash qgZRZI-pKgM",
+    "batata-cheddar-bacon": "Jonathan Borba · Unsplash I-cgCz5DUi4",
+    "batata-charque-cream-cheese": "Christopher Stites · Unsplash xy7BK6oDD2s",
+    "caldinho-feijao": "thiago japyassu · Pexels 36048828",
+    "caldinho-costela": "Caio Niceas · Pexels 37183920",
+    "caldinho-caldeirada": "one click · Pexels 24246337",
+    "espetinho-salsichao": "Jonathan Taylor · Unsplash GydZBn-7LMM",
+    "espetinho-pao-de-alho": "Ahmed Bhutta · Pexels 7159284",
+    "espetinho-queijo-coalho": "Anastasia Belousova · Pexels 8751408",
+    "espetinho-carne": "Debora Silveira · Pexels 36912022",
+    "espetinho-frango": "Furkan Alakoç · Pexels 31587881",
+    "espetinho-frango-bacon": "Leo Luz Fotografia · Pexels 40646207",
+    "espetinho-frango-queijo": "Martin Baron · Unsplash 7FYZhKm9ej8",
+    "espetinho-coracao": "arwin waworuntu · Pexels 37035283",
+    "espetinho-carne-bacon": "pedro furtado · Pexels 28902903",
+    "espetinho-carne-de-sol-queijo": "Nothing Ahead · Pexels 38602965",
+    "espetinho-costelinha-barbecue": "Brian Wegman · Unsplash QtLYiB6P-KM",
+    "espetinho-cupim": "Wolf Art · Pexels 32383601",
+    "espetinho-picanha": "Leo Luz Fotografia · Pexels 40646204",
+    "espetinho-file-de-bode": "Markus Winkler · Unsplash WHtVB-RiW2I",
+    "agua-sem-gas": "Steve A Johnson · Unsplash N-MqWXXZvNY",
+    "agua-com-gas": "KOBU Agency · Unsplash TWIRIAizZFU",
+    "antarctica-1-litro": "David Foodphototasty · Unsplash h7a8RsZFzgc",
+    "antarctica-lata": "Anna Holodna · Pexels 32183186",
+    "antarctica-zero-lata": "Faris Mohammed · Unsplash uCtJy7YavP8",
+    "coca-cola-lata": "Jeanson Wong · Unsplash cNQ_srUuvHk",
+    "coca-cola-zero-lata": "Mikael Stenberg · Unsplash cJeGGOI8eE0",
+    "schweppes-citrus": "shche_ team · Unsplash Ey9zoiEGQHw",
+    "h2o-limoneto": "engin akyurt · Unsplash lzn9KXKMClU",
+    "h2o-tradicional": "montatip lilitsanong · Unsplash mZT5bMpmDGQ",
+    "heineken-long-neck": "Andri Klopfenstein · Unsplash Ba6JoOFpF2U",
+    "suco": "ABHISHEK HAJARE · Unsplash kkrXVKK-jhg",
+    "corona-long-neck": "Jeff Vanderspank · Unsplash Gla6keSyoU0",
+    "budweiser-long-neck": "Giuliana Catachura · Unsplash BzRY-cmXyC0"
+  }
+}

@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { DIR, sql, pedir, check, R } from './lib.mjs';
+const bacon = { produtoId: 'brasa-bacon', qtd: 2, escolhas: { 'g-ponto': ['ao-ponto'], 'g-extras': ['bacon-extra', 'ovo'], 'g-molhos': ['barbecue-da-casa'] }, obs: '' };
+const p = await pedir({ itens: [bacon], pagamento: 'dinheiro', troco: '200,00' });
+const num = p.json?.pedido?.numero;
+const t = p.json?.pedido?.totais?.total;
+const linha = sql(`SELECT pagamento_forma, troco_para, total FROM pedidos WHERE numero = ${num || 0}`).split('\t');
+check('FIN-02', 'Dinheiro com troco: forma e valor em dinheiro ficam gravados no pedido', p.status === 201 && linha[0] === 'dinheiro' && linha[1] === '20000', `HTTP ${p.status}; banco: forma ${linha[0]}, troco para ${linha[1]} centavos, total ${linha[2]} centavos`);
+const trocoPainel = Math.round((200 - t) * 100) / 100;
+check('FIN-02', 'Troco mostrado no painel = valor em dinheiro − total', Math.abs(trocoPainel - (20000 - Number(linha[2])) / 100) < 0.001, `R$ 200,00 − R$ ${t} = R$ ${trocoPainel.toFixed(2)} (fórmula do painel: trocoPara − total)`);
+const r2 = JSON.parse(fs.readFileSync(path.join(DIR, 'resultados-2.json'), 'utf8')).filter(x => !(x.id === 'FIN-02' && /gravados no pedido|mostrado no painel/.test(x.nome)));
+fs.writeFileSync(path.join(DIR, 'resultados-2.json'), JSON.stringify([...r2, ...R], null, 2));

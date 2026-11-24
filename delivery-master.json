@@ -1,0 +1,17 @@
+{
+  "projeto": "C:\\Users\\jm424\\Downloads\\arapuca-burguer-delivery",
+  "slug": "arapuca-burguer",
+  "loja": "Arapuca Burguer",
+  "cor": "#f7741d",
+  "textoSobreMarca": "#170c04",
+  "corTextoTemaClaro": "#a84f14",
+  "arquivosAjustados": 19,
+  "validacao": "instalação de teste aprovada",
+  "fotos": 42,
+  "cardapio": "42 produtos, 6 categorias, 2 grupos, 5 bairros",
+  "avisos": [
+    "66 fotos de demonstração removidas; ajuste a página de créditos (app/paginas/creditos.html) às fotos que ficaram"
+  ],
+  "geradoEm": "2026-11-24T13:14:59.535Z",
+  "modelo": "delivery-master"
+}

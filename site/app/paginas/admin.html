@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Painel · {{LOJA_NOME}}</title>
+<meta name="description" content="Painel administrativo da {{LOJA_NOME}}: pedidos, cardápio, cupons, áreas de entrega, banners e configurações.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d0b0a">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="app">
+  <aside class="side" id="menu-lateral" aria-label="Menu do painel">
+    <a class="side__brand" href="#/visao-geral" aria-label="{{LOJA_NOME}}, painel de gestão: visão geral">
+      <img class="side__logo" alt="" hidden>
+      <span><span class="side__name">{{LOJA_NOME}}</span><span class="side__tag">PAINEL DE GESTÃO</span></span>
+    </a>
+    <nav class="side__nav" aria-label="Seções do painel">
+      <p class="side__label">Operação</p>
+      <a class="nav-item" href="#/visao-geral" data-rota="visao-geral"><i data-ic="dashboard"></i>Visão geral</a>
+      <a class="nav-item" href="#/pedidos" data-rota="pedidos"><i data-ic="receipt"></i>Pedidos<span class="nav-item__badge" data-badge-pedidos hidden></span></a>
+      <a class="nav-item" href="#/historico" data-rota="historico"><i data-ic="clock"></i>Histórico</a>
+      <a class="nav-item" href="#/caixa" data-rota="caixa"><i data-ic="wallet"></i>Caixa</a>
+      <p class="side__label" style="margin-top:14px">Cardápio</p>
+      <a class="nav-item" href="#/produtos" data-rota="produtos"><i data-ic="burger"></i>Produtos</a>
+      <a class="nav-item" href="#/categorias" data-rota="categorias"><i data-ic="layers"></i>Categorias</a>
+      <a class="nav-item" href="#/adicionais" data-rota="adicionais"><i data-ic="sliders"></i>Adicionais</a>
+      <p class="side__label" style="margin-top:14px">Loja</p>
+      <a class="nav-item" href="#/cupons" data-rota="cupons"><i data-ic="ticket"></i>Cupons</a>
+      <a class="nav-item" href="#/areas" data-rota="areas"><i data-ic="map"></i>Áreas de entrega</a>
+      <a class="nav-item" href="#/banners" data-rota="banners"><i data-ic="megaphone"></i>Banners e promoções</a>
+      <a class="nav-item" href="#/configuracoes" data-rota="configuracoes"><i data-ic="settings"></i>Configurações</a>
+    </nav>
+    <div class="side__foot">
+      <div class="store-card" data-loja-card>
+        <span class="dot dot--pulse" aria-hidden="true"></span>
+        <div><p class="store-card__t" data-loja-t>Loja aberta</p><p class="store-card__s" data-loja-s>Recebendo pedidos</p></div>
+      </div>
+      <a class="side__link" href="/" target="_blank" rel="noopener"><i data-ic="arrow-left"></i>Ver loja</a>
+    </div>
+  </aside>
+  <div class="side-backdrop" aria-hidden="true"></div>
+
+  <div class="main">
+    <header class="head">
+      <button class="btn-icon head__menu" type="button" data-menu-lateral aria-controls="menu-lateral" aria-expanded="false" aria-label="Abrir menu"><i data-ic="menu"></i></button>
+      <div class="head__titles">
+        <p class="head__date" data-data>HOJE</p>
+        <h1 class="head__title" id="titulo-pagina" tabindex="-1">Visão geral</h1>
+      </div>
+      <div class="head__tools">
+        <div class="search" role="search">
+          <i data-ic="search"></i>
+          <input class="inp" id="busca-global" type="search" placeholder="Buscar pedido, cliente…" aria-label="Buscar pedido ou cliente" autocomplete="off">
+          <kbd aria-hidden="true">/</kbd>
+        </div>
+        <button class="btn-icon head__search-btn" type="button" data-busca-celular aria-label="Buscar pedido ou cliente"><i data-ic="search"></i></button>
+        <button class="btn-icon head__sound" type="button" data-som aria-pressed="true" aria-label="Som de novos pedidos ligado"></button>
+        <button class="btn-icon" type="button" data-notif aria-haspopup="true" aria-expanded="false" aria-label="Notificações"><i data-ic="bell"></i><span class="btn-icon__badge" data-badge-notif hidden></span></button>
+        <button class="profile" type="button" data-perfil aria-haspopup="menu" aria-expanded="false">
+          <span class="avatar" data-perfil-ini aria-hidden="true"></span>
+          <span class="profile__txt"><span class="profile__name" data-perfil-nome></span><span class="profile__role" data-perfil-funcao></span></span>
+          <i data-ic="chevron-down"></i>
+        </button>
+      </div>
+    </header>
+    <main class="content" id="conteudo" tabindex="-1"></main>
+  </div>
+</div>
+
+<noscript><p style="padding:24px">O painel precisa de JavaScript ligado.</p></noscript>
+<script src="/admin/nucleo.js"></script>
+<script src="/admin/telas-operacao.js"></script>
+<script src="/admin/telas-catalogo.js"></script>
+<script src="/admin/telas-loja.js"></script>
+<script src="/admin/telas-gestao.js"></script>
+<script>BA.carregar();</script>
+</body>
+</html>

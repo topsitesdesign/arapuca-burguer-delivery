@@ -1,0 +1,36 @@
+# Ambiente local: PHP e MySQL portáteis e o banco de desenvolvimento (só nesta máquina)
+.ferramentas/
+
+# Segredos: senha do banco, chave do sistema e código de instalação nunca vão para o Git
+.env
+.env.*
+!.env.example
+site/app/config.php
+site/app/instalacao.php
+COMO-PUBLICAR.txt
+
+# Gerados durante o uso
+site/storage/logs/*
+site/storage/*.json
+!site/storage/**/.gitkeep
+site/uploads/*
+!site/uploads/.gitkeep
+!site/uploads/.htaccess
+
+# Pacote para enviar à hospedagem
+publicar/
+arapuca-burguer-site.zip
+arapuca-burguer-atualizacao.zip
+
+# Arquivos de trabalho das ferramentas e capturas de teste dos protótipos
+.claude/
+.taste-skill/
+shots/
+
+# Sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Testes automáticos: cópia do site, senhas de teste e resultados
+testes/tmp/

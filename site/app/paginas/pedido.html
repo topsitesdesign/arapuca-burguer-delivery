@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Acompanhar pedido · {{LOJA_NOME}}</title>
+<meta name="description" content="Acompanhe o seu pedido pelo número: recebido, confirmado, em preparo, saiu para entrega e entregue.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0d0a08">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topbar on-dark">
+  <div class="wrap-wide topbar__in">
+    <a class="brand" href="index.html"><img class="brand__logo" alt="{{LOJA_NOME}}" hidden><span class="brand__name">{{LOJA_NOME}}</span></a>
+    <p class="status" data-status><span class="status__dot" aria-hidden="true"></span><span class="status__text" data-status-text>Aberto agora</span><span class="status__eta" data-status-eta>{{PRAZO_ENTREGA}}</span></p>
+    <nav class="mainnav" aria-label="Principal">
+      <a href="index.html#inicio">Início</a>
+      <a href="index.html#cardapio">Cardápio</a>
+      <a href="index.html#duvidas">Dúvidas</a>
+    </nav>
+    <div class="topbar__actions">
+      <a class="btn btn--ghost btn--track" href="pedido.html" aria-current="page" aria-label="Acompanhar pedido">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h3m14 0h3M12 2v3m0 14v3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>Acompanhar pedido</span>
+      </a>
+      <a class="btn btn--primary btn--bag" href="index.html#sacola" data-bump>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg>
+        <span class="btn__label">Sacola</span><span class="count" data-cart-count>0</span>
+      </a>
+      <button class="iconbtn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobilemenu" id="menu" aria-label="Menu" hidden>
+    <ul class="wrap-wide">
+      <li><a href="index.html#inicio">Início</a></li>
+      <li><a href="index.html#cardapio">Cardápio</a></li>
+      <li><a href="index.html#duvidas">Dúvidas</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="page" id="conteudo">
+  <div class="wrap">
+    <div class="page__head">
+      <a class="back" href="index.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7M19 12H5"/></svg>Voltar ao cardápio</a>
+      <p class="eyebrow">Seu pedido em tempo real</p>
+      <h1 class="title page__title">Acompanhar pedido</h1>
+    </div>
+
+    <div class="track">
+      <div class="panel">
+        <form class="track__form" data-busca novalidate>
+          <div class="field"><label for="tr-num">Número do pedido</label>
+            <input class="input" id="tr-num" name="numero" type="text" inputmode="numeric" autocomplete="off" required placeholder="Ex.: 1048" aria-describedby="tr-num-err">
+            <p class="field__err" id="tr-num-err" hidden>Escreva o número do pedido que aparece na confirmação.</p></div>
+          <div class="field"><label for="tr-whats">WhatsApp usado no pedido</label>
+            <input class="input" id="tr-whats" name="whats" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(11) 90000-0000" aria-describedby="tr-whats-err">
+            <p class="field__err" id="tr-whats-err" hidden>Escreva o WhatsApp com DDD.</p></div>
+          <button class="btn btn--primary btn--lg btn--block" type="submit">Acompanhar pedido</button>
+        </form>
+        <div class="recent" data-recentes></div>
+      </div>
+
+      <section class="panel order" data-pedido hidden aria-labelledby="ord-h">
+        <div class="order__head">
+          <div>
+            <p class="t-label" data-ord-meta></p>
+            <h2 class="title order__num" id="ord-h" tabindex="-1" data-ord-num></h2>
+          </div>
+          <p class="order__badge" data-ord-badge></p>
+        </div>
+        <div class="order__now" data-ord-now role="status" aria-live="polite"></div>
+        <ol class="timeline" data-timeline aria-label="Etapas do pedido"></ol>
+        <div class="order__grid" data-ord-info></div>
+        <div data-ord-itens></div>
+        <div class="order__actions">
+          <a class="btn btn--primary" data-ord-whats href="{{WHATS_URL}}" target="_blank" rel="noopener"><img src="assets/icons/whatsapp.svg" alt="" width="18" height="18">Falar com a loja no WhatsApp</a>
+          <a class="btn btn--ghost" href="index.html#cardapio">Fazer outro pedido</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="footer on-dark">
+  <div class="wrap">
+    <div class="footer__bottom" style="margin-top:0; border-top:0; padding-top:0">
+      <p>© {{ANO}} {{LOJA_NOME}} · <span data-endereco>{{LOJA_RUA}}</span>, <span data-bairro>{{LOJA_BAIRRO}}</span> · <span data-horario-resumo>{{HORARIO_RESUMO}}</span></p>
+      <p class="footer__links"><a href="privacidade.html">Privacidade</a><button class="linkbtn" type="button" data-apagar-dados>Apagar meus dados deste aparelho</button><a href="creditos.html">Créditos das fotos</a></p>
+    </div>
+    <p class="muted footer__apagado" data-apagar-msg role="status" hidden></p>
+  </div>
+</footer>
+<div class="toast" data-toast role="status" aria-live="polite"></div>
+
+<script type="module" src="js/pedido.js"></script>
+</body>
+</html>
