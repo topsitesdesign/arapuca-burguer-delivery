@@ -64,12 +64,21 @@ Alternativa por linha de comando (do computador, com a `DATABASE_URL` do Supabas
 Toda semana, de um computador com o Postgres instalado (ou `.ferramentas/postgres/bin` desta pasta):
 
 ```
-pg_dump "<DATABASE_URL>" --no-owner --no-privileges -Fc -f arapuca-AAAA-MM-DD.dump
+pg_dump "<DATABASE_URL>?sslmode=require" --no-owner --no-privileges -Fc -n public -f arapuca-AAAA-MM-DD.dump
 ```
 
 Guarde o arquivo fora do computador (Drive, por exemplo). Para restaurar num banco vazio:
-`pg_restore --no-owner -d "<DATABASE_URL do banco novo>" arapuca-AAAA-MM-DD.dump`.
+`pg_restore --no-owner --no-privileges -d "<DATABASE_URL do banco novo>" arapuca-AAAA-MM-DD.dump`.
+O aviso `schema "public" already exists` na restauração é normal e pode ser ignorado.
 Teste a restauração uma vez e anote a data no `entrega.md`.
+
+## 4b. Monitoramento (grátis)
+
+- **Site fora do ar**: crie um monitor HTTP gratuito (UptimeRobot, Better Stack ou similar) para
+  `https://<domínio>/api/loja`, a cada 5 minutos, com aviso por e-mail ou Telegram. Ele também evita
+  que o Supabase grátis pause por falta de acesso.
+- **Erros do sistema**: Vercel › Project › **Logs** (filtre por "Error"). Leia no primeiro dia de pedidos e depois toda semana.
+- **Google**: no Search Console, adicione o domínio e envie `https://<domínio>/sitemap.xml`.
 
 ## 5. Limites dos planos grátis (para não ter surpresa)
 

@@ -414,7 +414,7 @@ function passo2() {
       <p class="field__err" id="sc-nome-err" hidden>Escreva o seu nome.</p>
     </div>
     <div class="field"><label for="sc-whats">WhatsApp</label>
-      <input class="input" id="sc-whats" name="whats" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(11) 90000-0000" value="${esc(dados.whats || '')}" aria-describedby="sc-whats-help sc-whats-err">
+      <input class="input" id="sc-whats" name="whats" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(81) 90000-0000" value="${esc(dados.whats || '')}" aria-describedby="sc-whats-help sc-whats-err">
       <p class="field__help muted" id="sc-whats-help">A loja usa este número para falar sobre o pedido.</p>
       <p class="field__err" id="sc-whats-err" hidden>Escreva o WhatsApp com DDD, por exemplo (11) 98765-4321.</p>
     </div>

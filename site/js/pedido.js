@@ -115,7 +115,7 @@ caixa.addEventListener('click', e => {
   if (!e.target.closest('[data-ver-endereco]')) return;
   const alvo = e.target.closest('p');
   alvo.textContent = atual.area || '';
-  alvo.insertAdjacentHTML('afterend', `<form class="confirma" data-confirma novalidate><label for="cf-whats">Confirme o WhatsApp do pedido</label><div class="confirma__linha"><input class="input" id="cf-whats" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(11) 90000-0000" aria-describedby="cf-err"><button class="btn btn--primary btn--sm" type="submit">Ver</button></div><p class="field__err" id="cf-err" hidden></p></form>`);
+  alvo.insertAdjacentHTML('afterend', `<form class="confirma" data-confirma novalidate><label for="cf-whats">Confirme o WhatsApp do pedido</label><div class="confirma__linha"><input class="input" id="cf-whats" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(81) 90000-0000" aria-describedby="cf-err"><button class="btn btn--primary btn--sm" type="submit">Ver</button></div><p class="field__err" id="cf-err" hidden></p></form>`);
   $('#cf-whats', caixa).focus();
 });
 caixa.addEventListener('input', e => { if (e.target.id === 'cf-whats') e.target.value = mascaraFone(e.target.value); });

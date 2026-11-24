@@ -427,7 +427,7 @@
           <p class="form-sec__t">Cliente</p>
           <div class="form-grid">
             ${BA.campo({ id: 'np-nome', rotulo: 'Nome do cliente', obrigatorio: true, attrs: 'autocomplete="off"' })}
-            ${BA.campo({ id: 'np-fone', rotulo: 'Telefone ou WhatsApp', obrigatorio: true, placeholder: '(11) 90000-0000', attrs: 'data-mascara="fone" inputmode="tel" autocomplete="off"' })}
+            ${BA.campo({ id: 'np-fone', rotulo: 'Telefone ou WhatsApp', obrigatorio: true, placeholder: '(81) 90000-0000', attrs: 'data-mascara="fone" inputmode="tel" autocomplete="off"' })}
           </div>
         </div>
         <div class="form-sec">

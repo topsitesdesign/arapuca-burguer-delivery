@@ -869,7 +869,7 @@
         <p class="form-sec__t">Pedido de um cliente sobre os próprios dados</p>
         <p class="form-sec__d">Quando um cliente pedir uma cópia dos dados ou a exclusão, busque pelo WhatsApp usado nos pedidos. Responda em até 15 dias. Cada consulta fica registrada.</p>
         <form class="form-grid" novalidate data-cli-form style="align-items:end">
-          ${BA.campo({ id: 'cl-fone', rotulo: 'WhatsApp do cliente', placeholder: '(11) 90000-0000', attrs: 'data-mascara="fone" inputmode="tel" autocomplete="off"' })}
+          ${BA.campo({ id: 'cl-fone', rotulo: 'WhatsApp do cliente', placeholder: '(81) 90000-0000', attrs: 'data-mascara="fone" inputmode="tel" autocomplete="off"' })}
           <button class="btn btn--ghost" type="submit" style="min-height:42px">${icone('search')}Buscar</button>
         </form>
         <div data-cli></div>

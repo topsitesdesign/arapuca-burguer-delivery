@@ -24,9 +24,25 @@ function lerPagina(arquivo: string): string {
   return paginas.get(arquivo)!;
 }
 
+/** Endereço público do site (https://dominio), tirado do pedido; só aceita um nome de host válido. */
+function base(): string {
+  const x = ctx();
+  const host = (x.cab['x-forwarded-host'] || x.cab.host || '').split(',')[0].trim().toLowerCase();
+  if (!/^[a-z0-9.-]+(:\d{1,5})?$/.test(host)) return '';
+  return (x.https ? 'https://' : 'http://') + host;
+}
+
 async function pagina(arquivo: string, daLoja = true): Promise<never> {
-  const html = lerPagina(arquivo);
-  return Http.pagina(daLoja ? await Cardapio.preencherPagina(html) : html);
+  let html = lerPagina(arquivo);
+  if (daLoja) html = await Cardapio.preencherPagina(html);
+  // prévia no WhatsApp/Facebook pede endereço completo da imagem; o canonical diz ao Google qual é o endereço oficial
+  const b = base();
+  if (b !== '') {
+    html = html.replace(/(<meta property="og:image" content=")(?!https?:)\/?([^"]+)"/, `$1${b}/$2"`);
+    const canon = arquivo === 'index.html' ? '/' : '/' + arquivo.replace(/\.html$/, '');
+    if (!html.includes('rel="canonical"')) html = html.replace('</head>', `<link rel="canonical" href="${escHtml(b + canon)}">\n<meta property="og:url" content="${escHtml(b + canon)}">\n</head>`);
+  }
+  return Http.pagina(html);
 }
 
 async function post(): Promise<Record<string, any>> {
@@ -117,6 +133,13 @@ export async function rotas(): Promise<never> {
   if (['/pedido', '/pedido.html'].includes(c)) return pagina('pedido.html');
   if (['/creditos', '/creditos.html'].includes(c)) return pagina('creditos.html');
   if (['/privacidade', '/privacidade.html'].includes(c)) return pagina('privacidade.html');
+  if (c === '/sitemap.xml') {
+    const b = base();
+    const urls = ['/', '/pedido', '/privacidade', '/creditos'].map(u => `  <url><loc>${escHtml(b + u)}</loc></url>`).join('\n');
+    Http.header('Content-Type', 'application/xml; charset=utf-8');
+    Http.header('Cache-Control', 'public, max-age=3600');
+    throw new Fim(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+  }
 
   if (c === '/js/data.js') {
     Http.header('Content-Type', 'text/javascript; charset=utf-8');
